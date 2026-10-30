@@ -1,0 +1,133 @@
+{
+  "localizationBase": "LemonemoneEntomancer/localization/eng",
+  "projectId": "Lemonemoneentomancer",
+  "presets": [
+    {
+      "id": "card",
+      "markers": [
+        "LemonemoneEntomancerCard"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "cards.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "cards.json",
+          "optional": false
+        },
+        {
+          "name": "selectionScreenPrompt",
+          "file": "cards.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "markers": [
+        "LemonemoneEntomancerPower"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "smartDescription",
+          "file": "powers.json",
+          "optional": false
+        },
+        {
+          "name": "selectionScreenPrompt",
+          "file": "powers.json",
+          "optional": true
+        },
+        {
+          "name": "remoteDescription",
+          "file": "powers.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "character",
+      "markers": [],
+      "fields": []
+    },
+    {
+      "id": "relic",
+      "markers": [
+        "LemonemoneEntomancerRelic"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "relics.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "relics.json",
+          "optional": false
+        },
+        {
+          "name": "flavor",
+          "file": "relics.json",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "potion",
+      "markers": [
+        "LemonemoneEntomancerPotion"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "potions.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "potions.json",
+          "optional": false
+        },
+        {
+          "name": "selectionScreenPrompt",
+          "file": "potions.json",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "enchantment",
+      "markers": [
+        "CustomEnchantmentModel"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "enchantments.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "enchantments.json",
+          "optional": false
+        }
+      ]
+    }
+  ],
+  "pinnedColors": [],
+  "customTags": []
+}
