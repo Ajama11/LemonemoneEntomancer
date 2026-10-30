@@ -34,7 +34,7 @@ public static class Bugs
 
         if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta);
         
-        MainFile.Logger.Warn($"Bugs changed by {actualDelta} ({delta}). Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
+        MainFile.Logger.Warn($"Bugs changed by {actualDelta} [{delta}]. Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
     }
     
     public static void GainBugSlots(Player player, int amount)
@@ -65,6 +65,8 @@ public static class Bugs
         await PowerCmd.Apply<BugsInWaitingPower>(new ThrowingPlayerChoiceContext(),
             creature, amountToUse,
             creature, null);
+        
+        MainFile.Logger.Warn($"Preparing {amountToUse} [{amount}] Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
     }
 
     public static async Task LoseBugsInWaiting(Player player, int amount)
@@ -78,5 +80,7 @@ public static class Bugs
 
         await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(),
             power, -amount, creature, null);
+        
+        MainFile.Logger.Warn($"Unpreparing {amount} Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
     }
 }
