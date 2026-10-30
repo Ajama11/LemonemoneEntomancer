@@ -17,11 +17,13 @@ public static class Bugs
         await ChangeBugs(player, amount);
     }
     
+    /// If silently losing Bugs NOT through the widget, call ValidateBugsInWaiting()!
     public static async Task SpendBugs(Player player, int amount, bool silentlyLose = false)
     {
         await ChangeBugs(player, -amount, silentlyLose);
     }
-
+    
+    /// If silently losing Bugs NOT through the widget, call ValidateBugsInWaiting()!
     public static async Task ChangeBugs(Player player, int delta, bool silentlyLose = false)
     {
         var combatState = player.PlayerCombatState;
@@ -64,7 +66,7 @@ public static class Bugs
 
         await PowerCmd.Apply<BugsInWaitingPower>(new ThrowingPlayerChoiceContext(),
             creature, amountToUse,
-            creature, null);
+            null, null);
         
         MainFile.Logger.Warn($"Preparing {amountToUse} [{amount}] Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
     }
@@ -79,8 +81,25 @@ public static class Bugs
         if (power == null) return;
 
         await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(),
-            power, -amount, creature, null);
+            power, -amount, null, null);
         
         MainFile.Logger.Warn($"Unpreparing {amount} Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
+    }
+    
+    /// If Bugs are lost via another effect, this makes sure the amount of Bugs-in-Waiting doesn't exceed the amount of Bugs that could be spent.
+    public static async Task ValidateBugsInWaiting(Player player)
+    {
+        var combatState = player.PlayerCombatState;
+        if (combatState == null) return;
+        var creature = player.Creature;
+        
+        var power = creature.GetPower<BugsInWaitingPower>();
+        if (power == null) return;
+        
+        if (power.Amount <= BugAmount[combatState]) return;
+
+        await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(),
+            power, BugAmount[combatState] - power.Amount,
+            null, null);
     }
 }
