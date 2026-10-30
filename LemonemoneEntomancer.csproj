@@ -70,6 +70,7 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Status\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\" />
+        <Folder Include="LemonemoneEntomancerCode\ConsoleCommands\" />
         <Folder Include="LemonemoneEntomancerCode\NetActions\" />
         <Folder Include="LemonemoneEntomancerCode\Patches\" />
         <Folder Include="LemonemoneEntomancerCode\Singletons\" />

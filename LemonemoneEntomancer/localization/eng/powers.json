@@ -1,5 +1,5 @@
 {
   "LEMONEMONEENTOMANCER-BUGS_IN_WAITING_POWER.title": "Bugs-in-Waiting",
   "LEMONEMONEENTOMANCER-BUGS_IN_WAITING_POWER.description": "Your next Attack deals additional damage.",
-  "LEMONEMONEENTOMANCER-BUGS_IN_WAITING_POWER.smartDescription": "Your next Attack deals [blue]number[/blue] additional damage."
+  "LEMONEMONEENTOMANCER-BUGS_IN_WAITING_POWER.smartDescription": "Your next Attack deals [blue]{Display}[/blue] additional damage."
 }
