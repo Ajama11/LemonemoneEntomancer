@@ -1,5 +1,6 @@
 using BaseLib.Cards.Variables;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Systems;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -69,6 +70,8 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
 
         await PowerCmd.ModifyAmount(choiceContext, this,
             -data.AmountWhenAttackStarted, null, null);
+
+        await Bugs.SpendBugs(Owner.Player!, data.AmountWhenAttackStarted);
 
         data.CommandToModify = null;
     }
