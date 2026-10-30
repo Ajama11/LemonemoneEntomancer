@@ -1,3 +1,6 @@
 {
-  
+  "LEMONEMONEENTOMANCER-STRIKE.title": "Strike",
+  "LEMONEMONEENTOMANCER-STRIKE.description": "#Deal !D! damage.",
+  "LEMONEMONEENTOMANCER-DEFEND.title": "Defend",
+  "LEMONEMONEENTOMANCER-DEFEND.description": "#Gain !B! [gold]Block[/gold]."
 }

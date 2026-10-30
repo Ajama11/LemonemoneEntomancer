@@ -64,7 +64,6 @@
 
     <ItemGroup>
         <Folder Include="LemonemoneEntomancerCode\Cards\Ancient\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Basic\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Common\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Multiplayer\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\" />
@@ -72,17 +71,17 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\" />
         <Folder Include="LemonemoneEntomancerCode\NetActions\" />
-        <Folder Include="LemonemoneEntomancerCode\Nodes\" />
         <Folder Include="LemonemoneEntomancerCode\Patches\" />
         <Folder Include="LemonemoneEntomancerCode\Singletons\" />
         <Folder Include="LemonemoneEntomancerCode\Utils\" />
         <Folder Include="LemonemoneEntomancer\images\card_portraits\big\"/>
         <Folder Include="LemonemoneEntomancer\images\powers\big\"/>
         <Folder Include="LemonemoneEntomancer\images\relics\big\"/>
+        <Folder Include="LemonemoneEntomancer\scenes\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="LemonemoneEntomancerCode\cardloc-presets.json" />
+      <Content Include="cardloc-presets.json" />
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">

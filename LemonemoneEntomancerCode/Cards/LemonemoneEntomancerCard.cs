@@ -1,9 +1,12 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 
@@ -29,4 +32,70 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+    
+    public virtual BundledHoverTipManager MyBundles => [];
+    public virtual List<List<string>> BundleReorders => [];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    {
+        get
+        {
+            BundledHoverTipManager bundles = [];
+
+            #region Automatic Bundles
+            
+            foreach (var keyword in ((IEnumerable<CardKeyword>) CardKeywordOrder.beforeDescription).Reverse())
+            {
+                if (Keywords.Contains(keyword))
+                {
+                    bundles.Add(new BundledHoverTip(
+                        keyword.GetTitle().GetRawText(),
+                        HoverTipFactory.FromKeyword(keyword),
+                        BundledHoverTipManager.Category.Start
+                    ));
+
+                    if (keyword == CardKeyword.Ethereal && !Keywords.Contains(CardKeyword.Exhaust))
+                    {
+                        bundles.Add(new BundledHoverTip(
+                            CardKeyword.Exhaust.GetTitle().GetRawText(),
+                            HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+                            BundledHoverTipManager.Category.Start
+                        ));
+                    }
+                }
+            }
+            
+            foreach (var keyword in CardKeywordOrder.afterDescription)
+            {
+                if (Keywords.Contains(keyword))
+                {
+                    bundles.Add(new BundledHoverTip(
+                        keyword.GetTitle().GetRawText(),
+                        HoverTipFactory.FromKeyword(keyword),
+                        BundledHoverTipManager.Category.End
+                    ));
+                }
+            }
+
+            if (GainsBlock)
+            {
+                bundles.Add(BundledHoverTipFactory.Static(StaticHoverTip.Block));
+            }
+
+            foreach (var myPowerVar in DynamicVars.Values.OfType<IPowerHoverTip>())
+            {
+                var powerHoverTip = myPowerVar.GetPowerHoverTip();
+                if (powerHoverTip.SkipTooltip) continue;
+                
+                bundles.Add(new BundledHoverTip(powerHoverTip.Name, powerHoverTip.HoverTip));
+            }
+            
+            #endregion
+            
+            bundles.AddRange(MyBundles);
+            
+            bundles.SortHoverTips(BundleReorders);
+            return bundles.GetHoverTips();
+        }
+    }
 }
