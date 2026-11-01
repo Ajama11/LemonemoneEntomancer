@@ -71,7 +71,6 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\" />
         <Folder Include="LemonemoneEntomancerCode\NetActions\" />
-        <Folder Include="LemonemoneEntomancerCode\Patches\" />
         <Folder Include="LemonemoneEntomancerCode\Singletons\" />
         <Folder Include="LemonemoneEntomancerCode\Utils\" />
         <Folder Include="LemonemoneEntomancer\images\card_portraits\big\"/>

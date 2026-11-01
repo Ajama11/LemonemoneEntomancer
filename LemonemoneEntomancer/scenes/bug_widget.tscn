@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://0x01akh4l3js"]
+[gd_scene load_steps=5 format=3 uid="uid://0x01akh4l3js"]
 
-[ext_resource type="Script" uid="uid://6blnqhnruvxc" path="res://LemonemoneEntomancerCode/Nodes/BugWidget.cs" id="1_i2qjf"]
+[ext_resource type="Script" uid="uid://6blnqhnruvxc" path="res://LemonemoneEntomancerCode/Nodes/NBugWidget.cs" id="1_i2qjf"]
+[ext_resource type="Script" uid="uid://b8x1e3h3q5ks1" path="res://LemonemoneEntomancerCode/Nodes/LemonemoneEntomancerMegaLabel.cs" id="2_wm605"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s51ww"]
 bg_color = Color(0.75, 0.70000005, 0, 0.44313726)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2qjf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="BugWidget" type="Control"]
 layout_mode = 3
@@ -13,8 +21,9 @@ script = ExtResource("1_i2qjf")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -88.0
+offset_right = 88.0
+offset_bottom = 62.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s51ww")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
@@ -30,32 +39,53 @@ layout_mode = 2
 [node name="AmountLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12, 0.11833999, 0.0204, 1)
+theme_override_constants/outline_size = 10
 text = "7 (-1)"
 horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+script = ExtResource("2_wm605")
+MinFontSize = 20
+MaxFontSize = 20
+theme_override_colors/font_outline_color = Color(0.12, 0.11833999, 0.0204, 1)
+theme_override_constants/outline_size = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="NoneButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12156863, 0.11764706, 0.019607844, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_i2qjf")
+text = "None"
 
 [node name="MinusButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12156863, 0.11764706, 0.019607844, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_i2qjf")
 text = "-"
 
 [node name="PlusButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12156863, 0.11764706, 0.019607844, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_i2qjf")
 text = "+"
 
 [node name="AllButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.12156863, 0.11764706, 0.019607844, 1)
+theme_override_constants/outline_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_i2qjf")
 text = "All"
-
-[node name="NoneButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-text = "None"

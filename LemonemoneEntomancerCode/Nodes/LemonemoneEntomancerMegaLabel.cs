@@ -7,7 +7,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Nodes;
 [GlobalClass]
 public partial class LemonemoneEntomancerMegaLabel : MegaLabel
 {
-    private const string MegaLabelFont = "res://themes/kreon_bold_glyph_space_one.tres";
+    public const string MegaLabelFont = "res://themes/kreon_bold_glyph_space_one.tres";
 
     public override void _Ready()
     {
