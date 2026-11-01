@@ -1,4 +1,6 @@
 using Godot;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -9,7 +11,7 @@ public partial class NBugWidget : Control
 {
 	private const string Font = LemonemoneEntomancerMegaLabel.MegaLabelFont;
 
-	private Label? _amountLabel;
+	private MegaLabel? _amountLabel;
 	private Button? _noneButton;
 	private Button? _allButton;
 	private Button? _minusButton;
@@ -19,7 +21,7 @@ public partial class NBugWidget : Control
 
 	public override void _Ready()
 	{
-		_amountLabel = GetNode<Label>("%AmountLabel");
+		_amountLabel = GetNode<MegaLabel>("%AmountLabel");
 		_noneButton = GetNode<Button>("%NoneButton");
 		_allButton = GetNode<Button>("%AllButton");
 		_minusButton = GetNode<Button>("%MinusButton");
@@ -34,5 +36,28 @@ public partial class NBugWidget : Control
 	public void Initialize(Player player)
 	{
 		_player = player;
+
+		BugsSingleton.BugAmountChanged += UpdateLabel;
+		BugsSingleton.BugSlotsChanged += UpdateLabel;
+		BugsSingleton.BugsInWaitingChanged += UpdateLabel;
+
+		UpdateLabel();
+	}
+
+	private void UpdateLabel()
+	{
+		// ReSharper disable once UseNullPropagation
+		if (_player == null) return;
+		var combatState = _player.PlayerCombatState;
+		if (combatState == null) return;
+
+		int currentBugs = BugsSingleton.BugAmount[combatState];
+		int maxBugs = BugsSingleton.BugSlots[combatState];
+		int bugsInWaiting = _player.Creature.GetPowerAmount<BugsInWaitingPower>();
+
+		string bugsInWaitingString = bugsInWaiting > 0 ? $" (-{bugsInWaiting})" : "";
+
+		// Replace this with a LocString later! The buttons too!
+		_amountLabel?.SetTextAutoSize($"{currentBugs}{bugsInWaitingString} / {maxBugs}");
 	}
 }

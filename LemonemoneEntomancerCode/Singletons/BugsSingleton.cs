@@ -1,16 +1,34 @@
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
-namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Systems;
+namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 
-public static class Bugs
+public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
 {
     public static readonly SpireField<PlayerCombatState, int> BugAmount = new(() => 0);
     public static readonly SpireField<PlayerCombatState, int> BugSlots = new(() => 7);
+    
+    public static event Action? BugAmountChanged;
+    public static event Action? BugSlotsChanged;
+    public static event Action? BugsInWaitingChanged;
+    
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
+    {
+        if (power is not BugsInWaitingPower) return Task.CompletedTask;
+        
+        if (LocalContext.IsMe(power.Owner)) BugsInWaitingChanged?.Invoke();
+        
+        return Task.CompletedTask;
+    }
 
     public static async Task GainBugs(Player player, int amount)
     {
@@ -36,6 +54,7 @@ public static class Bugs
 
         if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta);
         
+        BugAmountChanged?.Invoke();
         MainFile.Logger.Warn($"Bugs changed by {actualDelta} [{delta}]. Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
     }
     
@@ -52,6 +71,7 @@ public static class Bugs
         BugSlots[combatState] = Math.Max(0, BugSlots[combatState] + delta);
         if (delta < 0) BugAmount[combatState] = Math.Min(BugAmount[combatState], BugSlots[combatState]);
         
+        BugSlotsChanged?.Invoke();
         MainFile.Logger.Warn($"Bug Slots changed by {delta}. Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
     }
 

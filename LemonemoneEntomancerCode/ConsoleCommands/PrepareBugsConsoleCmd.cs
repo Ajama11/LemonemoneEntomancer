@@ -1,4 +1,4 @@
-using LemonemoneEntomancer.LemonemoneEntomancerCode.Systems;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.DevConsole;
@@ -44,11 +44,11 @@ public class PrepareBugsConsoleCmd : AbstractConsoleCmd
     {
         if (amount < 0)
         {
-            await Bugs.LoseBugsInWaiting(player, -amount);
+            await BugsSingleton.LoseBugsInWaiting(player, -amount);
         }
         else
         {
-            await Bugs.GainBugsInWaiting(player, amount);
+            await BugsSingleton.GainBugsInWaiting(player, amount);
         }
     }
 }

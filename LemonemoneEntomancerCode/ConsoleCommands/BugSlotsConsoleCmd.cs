@@ -1,4 +1,4 @@
-using LemonemoneEntomancer.LemonemoneEntomancerCode.Systems;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.DevConsole;
@@ -36,7 +36,7 @@ public class BugSlotsConsoleCmd : AbstractConsoleCmd
         string gainedOrLost = amount >= 0 ? "Gained" : "Lost";
         string pluralSlots = Math.Abs(amount) == 1 ? "Slot" : "Slots";
 
-        Bugs.ChangeBugSlots(issuingPlayer!, amount);
+        BugsSingleton.ChangeBugSlots(issuingPlayer!, amount);
         return new CmdResult(success: true, $"{gainedOrLost} {amount} Bug {pluralSlots}");
     }
 }

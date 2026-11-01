@@ -1,4 +1,4 @@
-using LemonemoneEntomancer.LemonemoneEntomancerCode.Systems;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.DevConsole;
@@ -42,7 +42,7 @@ public class BugsConsoleCmd : AbstractConsoleCmd
 
     private static async Task ChangeBugs(Player player, int amount, bool silentlyLose)
     {
-        await Bugs.ChangeBugs(player, amount, silentlyLose);
-        await Bugs.ValidateBugsInWaiting(player);
+        await BugsSingleton.ChangeBugs(player, amount, silentlyLose);
+        await BugsSingleton.ValidateBugsInWaiting(player);
     }
 }
