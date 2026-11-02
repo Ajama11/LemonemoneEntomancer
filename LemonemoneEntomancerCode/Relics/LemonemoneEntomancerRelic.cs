@@ -15,7 +15,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Relics;
 /// The [Pool] annotation marks this relic as being tied to your specific character. Inheriting from this class means
 /// that your relics don't need to invidually say which pool they should be in.
 /// </summary>
-[Pool(typeof(LemonemoneEntomancerRelicPool))]
+[Pool(typeof(EntomancerRelicPool))]
 public abstract class LemonemoneEntomancerRelic : CustomRelicModel
 {
     public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();

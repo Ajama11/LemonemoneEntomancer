@@ -6,7 +6,7 @@ using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Potions;
 
-[Pool(typeof(LemonemoneEntomancerPotionPool))]
+[Pool(typeof(EntomancerPotionPool))]
 public abstract class LemonemoneEntomancerPotion : CustomPotionModel
 {
     public override string? CustomPackedImagePath =>

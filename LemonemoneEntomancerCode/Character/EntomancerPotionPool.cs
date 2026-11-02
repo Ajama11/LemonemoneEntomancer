@@ -4,9 +4,9 @@ using Godot;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 
-public class LemonemoneEntomancerPotionPool : CustomPotionPoolModel
+public class EntomancerPotionPool : CustomPotionPoolModel
 {
-    public override Color LabOutlineColor => LemonemoneEntomancer.Color;
+    public override Color LabOutlineColor => Entomancer.Color;
 
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();

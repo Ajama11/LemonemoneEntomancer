@@ -1,4 +1,7 @@
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -82,4 +85,48 @@ public class MyActions
     }
     
     #endregion
+
+    public static async Task GainBugs(CardModel sourceCard)
+    {
+        await GainBugs(sourceCard.Owner, sourceCard.DynamicVars.Bugs.IntValue);
+    }
+    
+    public static async Task GainBugs(Player player, int amount)
+    {
+        await BugsSingleton.GainBugs(player, amount);
+    }
+
+    public static async Task CreateSwarm(
+        CardModel sourceCard,
+        PileType pile = PileType.Draw, CardPilePosition? position = null,
+        bool preview = true, float previewTime = 1.2f,
+        Func<List<CardModel>, List<CardModel>>? modifyCardsBeforePreview = null)
+    {
+        var positionToUse =
+            position ?? 
+            (pile == PileType.Draw ?
+                CardPilePosition.Random :
+                CardPilePosition.Bottom);
+
+        await CreateCards(ModelDb.Card<Swarm>(),
+            sourceCard.DynamicVars.Swarm.IntValue, sourceCard,
+            pile, positionToUse, preview, previewTime, modifyCardsBeforePreview);
+    }
+    
+    public static async Task CreateSwarm(
+        int amount, Player owner, ICombatState combatState,
+        PileType pile = PileType.Draw, CardPilePosition? position = null,
+        bool preview = true, float previewTime = 1.2f,
+        Func<List<CardModel>, List<CardModel>>? modifyCardsBeforePreview = null)
+    {
+        var positionToUse =
+            position ?? 
+            (pile == PileType.Draw ?
+                CardPilePosition.Random :
+                CardPilePosition.Bottom);
+        
+        await CreateCards(ModelDb.Card<Swarm>(),
+            amount, owner, combatState,
+            pile, positionToUse, preview, previewTime, modifyCardsBeforePreview);
+    }
 }

@@ -70,7 +70,6 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Power\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Skill\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Status\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Skill\" />

@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
@@ -16,7 +17,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 /// This will generate a class that extends this one.
 /// You can also just create the class manually; just make sure to inherit from this class.
 /// </summary>
-[Pool(typeof(LemonemoneEntomancerCardPool))]
+[Pool(typeof(EntomancerCardPool))]
 public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
@@ -91,6 +92,11 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
             }
             
             #endregion
+            
+            if (DynamicVars.Values.Any(dv => dv is SwarmVar { SkipTooltip: false }))
+            {
+                bundles.Add(BundledHoverTipFactory.FromCard<Swarm>());
+            }
             
             bundles.AddRange(MyBundles);
             

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 
-public class LemonemoneEntomancer : PlaceholderCharacterModel
+public class Entomancer : PlaceholderCharacterModel
 {
     public const string CharacterId = "LemonemoneEntomancer";
 
@@ -37,9 +37,9 @@ public class LemonemoneEntomancer : PlaceholderCharacterModel
         ModelDb.Relic<BurningBlood>()
     ];
 
-    public override CardPoolModel CardPool => ModelDb.CardPool<LemonemoneEntomancerCardPool>();
-    public override RelicPoolModel RelicPool => ModelDb.RelicPool<LemonemoneEntomancerRelicPool>();
-    public override PotionPoolModel PotionPool => ModelDb.PotionPool<LemonemoneEntomancerPotionPool>();
+    public override CardPoolModel CardPool => ModelDb.CardPool<EntomancerCardPool>();
+    public override RelicPoolModel RelicPool => ModelDb.RelicPool<EntomancerRelicPool>();
+    public override PotionPoolModel PotionPool => ModelDb.PotionPool<EntomancerPotionPool>();
 
     /*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
         override all the other methods that define those assets.
