@@ -2,5 +2,7 @@
   "LEMONEMONEENTOMANCER-STRIKE.title": "Strike",
   "LEMONEMONEENTOMANCER-STRIKE.description": "#Deal !D! damage.",
   "LEMONEMONEENTOMANCER-DEFEND.title": "Defend",
-  "LEMONEMONEENTOMANCER-DEFEND.description": "#Gain !B! [gold]Block[/gold]."
+  "LEMONEMONEENTOMANCER-DEFEND.description": "#Gain !B! [gold]Block[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED.title": "Bug Attacks Apply Buzzed",
+  "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED.description": "#Whenever an Attack deals damage using [gold]Bugs[/gold], apply !UnnamedBugAttacksApplyBuzzedPower! [gold]Buzzed[/gold]."
 }

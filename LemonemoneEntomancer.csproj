@@ -64,12 +64,16 @@
 
     <ItemGroup>
         <Folder Include="LemonemoneEntomancerCode\Cards\Ancient\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Common\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Common\Attack\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Common\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Multiplayer\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Rare\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Attack\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Power\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Status\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Attack\" />
+        <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Utils\" />
         <Folder Include="LemonemoneEntomancer\images\card_portraits\big\"/>
         <Folder Include="LemonemoneEntomancer\images\powers\big\"/>

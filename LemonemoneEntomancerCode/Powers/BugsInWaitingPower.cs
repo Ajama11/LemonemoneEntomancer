@@ -1,4 +1,5 @@
 using BaseLib.Cards.Variables;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.Commands;
@@ -9,7 +10,6 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
@@ -74,6 +74,15 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
         await BugsSingleton.SpendBugs(Owner.Player!, data.AmountWhenAttackStarted);
 
         data.CommandToModify = null;
+    }
+
+    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,
+        Creature target, CardModel? cardSource)
+    {
+        if (dealer != Owner) return;
+        if (dealer.Player == null) return;
+
+        await MyHooks.OnBugAttackHit(dealer.Player, dealer, result, props, target, cardSource);
     }
 
     protected override object InitInternalData() => new Data();
