@@ -41,6 +41,17 @@ public partial class NBugWidget : Control
 		_plusButton.Pressed += OnPlusButtonPressed;
 	}
 	
+	public void Initialize(Player player)
+	{
+		_player = player;
+
+		BugsSingleton.LocalBugAmountChanged += UpdateLabel;
+		BugsSingleton.LocalBugSlotsChanged += UpdateLabel;
+		BugsSingleton.LocalBugsInWaitingChanged += UpdateLabel;
+
+		UpdateLabel();
+	}
+	
 	private void OnNoneButtonPressed()
 	{
 		if (_player == null) return;
@@ -71,17 +82,6 @@ public partial class NBugWidget : Control
 		
 		var action = new GainBugsInWaitingAction(_player, 1);
 		RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(action);
-	}
-
-	public void Initialize(Player player)
-	{
-		_player = player;
-
-		BugsSingleton.LocalBugAmountChanged += UpdateLabel;
-		BugsSingleton.LocalBugSlotsChanged += UpdateLabel;
-		BugsSingleton.LocalBugsInWaitingChanged += UpdateLabel;
-
-		UpdateLabel();
 	}
 
 	private void UpdateLabel()
