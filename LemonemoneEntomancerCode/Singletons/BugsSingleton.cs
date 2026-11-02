@@ -54,8 +54,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
 
         if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta);
         
-        BugAmountChanged?.Invoke();
-        MainFile.Logger.Warn($"Bugs changed by {actualDelta} [{delta}]. Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
+        if (LocalContext.IsMe(player)) BugAmountChanged?.Invoke();
     }
     
     public static void GainBugSlots(Player player, int amount)
@@ -71,8 +70,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
         BugSlots[combatState] = Math.Max(0, BugSlots[combatState] + delta);
         if (delta < 0) BugAmount[combatState] = Math.Min(BugAmount[combatState], BugSlots[combatState]);
         
-        BugSlotsChanged?.Invoke();
-        MainFile.Logger.Warn($"Bug Slots changed by {delta}. Current Bugs: {BugAmount[combatState]} / {BugSlots[combatState]}");
+        if (LocalContext.IsMe(player)) BugSlotsChanged?.Invoke();
     }
 
     public static async Task GainBugsInWaiting(Player player, int amount)
@@ -82,13 +80,11 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
         var creature = player.Creature;
         
         int preexistingAmount = creature.GetPowerAmount<BugsInWaitingPower>();
-        int amountToUse = Math.Min(amount, BugAmount[combatState]) - preexistingAmount;
+        int amountToUse = Math.Min(amount, BugAmount[combatState] - preexistingAmount);
 
         await PowerCmd.Apply<BugsInWaitingPower>(new ThrowingPlayerChoiceContext(),
             creature, amountToUse,
             null, null);
-        
-        MainFile.Logger.Warn($"Preparing {amountToUse} [{amount}] Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
     }
 
     public static async Task LoseBugsInWaiting(Player player, int amount)
@@ -102,8 +98,6 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
 
         await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(),
             power, -amount, null, null);
-        
-        MainFile.Logger.Warn($"Unpreparing {amount} Bugs. Current Bugs: {BugAmount[combatState]} (-{creature.GetPowerAmount<BugsInWaitingPower>()}) / {BugSlots[combatState]}");
     }
     
     /// If Bugs are lost via another effect, this makes sure the amount of Bugs-in-Waiting doesn't exceed the amount of Bugs that could be spent.

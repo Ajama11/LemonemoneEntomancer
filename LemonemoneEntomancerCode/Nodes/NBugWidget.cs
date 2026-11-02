@@ -1,9 +1,12 @@
 using Godot;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.NetActions;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Nodes;
 
@@ -31,6 +34,43 @@ public partial class NBugWidget : Control
 		_allButton.AddThemeFontOverride(ThemeConstants.Label.Font, PreloadManager.Cache.GetAsset<Font>(Font));
 		_minusButton.AddThemeFontOverride(ThemeConstants.Label.Font, PreloadManager.Cache.GetAsset<Font>(Font));
 		_plusButton.AddThemeFontOverride(ThemeConstants.Label.Font, PreloadManager.Cache.GetAsset<Font>(Font));
+
+		_noneButton.Pressed += OnNoneButtonPressed;
+		_allButton.Pressed += OnAllButtonPressed;
+		_minusButton.Pressed += OnMinusButtonPressed;
+		_plusButton.Pressed += OnPlusButtonPressed;
+	}
+	
+	private void OnNoneButtonPressed()
+	{
+		if (_player == null) return;
+		
+		var action = new LoseBugsInWaitingAction(_player, Really.bigNumber);
+		RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(action);
+	}
+
+	private void OnAllButtonPressed()
+	{
+		if (_player == null) return;
+		
+		var action = new GainBugsInWaitingAction(_player, Really.bigNumber);
+		RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(action);
+	}
+
+	private void OnMinusButtonPressed()
+	{
+		if (_player == null) return;
+		
+		var action = new LoseBugsInWaitingAction(_player, 1);
+		RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(action);
+	}
+
+	private void OnPlusButtonPressed()
+	{
+		if (_player == null) return;
+		
+		var action = new GainBugsInWaitingAction(_player, 1);
+		RunManager.Instance.ActionQueueSynchronizer.RequestEnqueue(action);
 	}
 
 	public void Initialize(Player player)
