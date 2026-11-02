@@ -74,7 +74,6 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Skill\" />
-        <Folder Include="LemonemoneEntomancerCode\Utils\" />
         <Folder Include="LemonemoneEntomancer\images\card_portraits\big\"/>
         <Folder Include="LemonemoneEntomancer\images\powers\big\"/>
         <Folder Include="LemonemoneEntomancer\images\relics\big\"/>
