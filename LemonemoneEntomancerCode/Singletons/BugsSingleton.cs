@@ -16,16 +16,16 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
     public static readonly SpireField<PlayerCombatState, int> BugAmount = new(() => 0);
     public static readonly SpireField<PlayerCombatState, int> BugSlots = new(() => 7);
     
-    public static event Action? BugAmountChanged;
-    public static event Action? BugSlotsChanged;
-    public static event Action? BugsInWaitingChanged;
+    public static event Action? LocalBugAmountChanged;
+    public static event Action? LocalBugSlotsChanged;
+    public static event Action? LocalBugsInWaitingChanged;
     
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource)
     {
         if (power is not BugsInWaitingPower) return Task.CompletedTask;
         
-        if (LocalContext.IsMe(power.Owner)) BugsInWaitingChanged?.Invoke();
+        if (LocalContext.IsMe(power.Owner)) LocalBugsInWaitingChanged?.Invoke();
         
         return Task.CompletedTask;
     }
@@ -54,7 +54,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
 
         if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta);
         
-        if (LocalContext.IsMe(player)) BugAmountChanged?.Invoke();
+        if (LocalContext.IsMe(player)) LocalBugAmountChanged?.Invoke();
     }
     
     public static void GainBugSlots(Player player, int amount)
@@ -70,7 +70,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
         BugSlots[combatState] = Math.Max(0, BugSlots[combatState] + delta);
         if (delta < 0) BugAmount[combatState] = Math.Min(BugAmount[combatState], BugSlots[combatState]);
         
-        if (LocalContext.IsMe(player)) BugSlotsChanged?.Invoke();
+        if (LocalContext.IsMe(player)) LocalBugSlotsChanged?.Invoke();
     }
 
     public static async Task GainBugsInWaiting(Player player, int amount)

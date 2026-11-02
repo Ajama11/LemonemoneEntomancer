@@ -77,9 +77,9 @@ public partial class NBugWidget : Control
 	{
 		_player = player;
 
-		BugsSingleton.BugAmountChanged += UpdateLabel;
-		BugsSingleton.BugSlotsChanged += UpdateLabel;
-		BugsSingleton.BugsInWaitingChanged += UpdateLabel;
+		BugsSingleton.LocalBugAmountChanged += UpdateLabel;
+		BugsSingleton.LocalBugSlotsChanged += UpdateLabel;
+		BugsSingleton.LocalBugsInWaitingChanged += UpdateLabel;
 
 		UpdateLabel();
 	}
