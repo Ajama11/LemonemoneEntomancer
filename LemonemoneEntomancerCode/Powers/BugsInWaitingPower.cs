@@ -50,7 +50,7 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount,
         ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
-        if (Owner != dealer || !props.IsPoweredAttack()) return 0M;
+        if (Owner != dealer || !props.IsPoweredAttack()) return 0;
         
         Data data = GetInternalData<Data>();
         
@@ -59,7 +59,7 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
                cardSource != data.CommandToModify.ModelSource ||
                data.CommandToModify != null &&
                data.CommandToModify.Attacker != dealer
-            ? 0M : Amount * BugStrengthPlaceholder;
+            ? 0 : Amount * BugStrengthPlaceholder;
     }
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)

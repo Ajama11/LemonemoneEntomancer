@@ -4,5 +4,8 @@
   "LEMONEMONEENTOMANCER-BUGS_IN_WAITING_POWER.smartDescription": "Your next Attack deals [blue]{Display}[/blue] additional damage.",
   "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED_POWER.title": "Bug Attacks Apply Buzzed",
   "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED_POWER.description": "Whenever an Attack deals damage using [gold]Bugs[/gold], apply [blue]2[/blue] [gold]Buzzed[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold], apply [blue]{Amount}[/blue] [gold]Buzzed[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold], apply [blue]{Amount}[/blue] [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-BUZZED_POWER.title": "Buzzed",
+  "LEMONEMONEENTOMANCER-BUZZED_POWER.description": "[gold]Buzzed[/gold] creatures deal reduced attack damage and then lose that much [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-BUZZED_POWER.smartDescription": "#{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} attack damage is reduced by [blue]{Amount}[/blue].{OnPlayer:|{ShouldDisplay:\n[gold]Buzzed[/gold] is reduced by [blue]{Display}[/blue] after [gold]{OwnerName}[/gold] attacks.|}}"
 }

@@ -4,7 +4,7 @@
   "LEMONEMONEENTOMANCER-DEFEND.title": "Defend",
   "LEMONEMONEENTOMANCER-DEFEND.description": "#Gain !B! [gold]Block[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.title": "Bug Attacks Apply Buzzed",
-  "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.description": "#Whenever an Attack deals damage using [gold]Bugs[/gold], apply !UnnamedBugAttacksApplyBuzzedPower! [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.description": "#Whenever an Attack deals damage using [gold]Bugs[/gold], apply !UnnamedBugAttacksApplyBuzzedPower! [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-SWARM.title": "Swarm",
   "LEMONEMONEENTOMANCER-SWARM.description": "#When drawn, draw !C! card(s) and gain !Bugs! [gold]Bug(s)[/gold].{IfUpgraded:show:\nWhen discarded, gain !Bugs! [gold]Bug(s)[/gold].|}",
   "LEMONEMONEENTOMANCER-BEE_ASSAULT.title": "Bee Assault",
