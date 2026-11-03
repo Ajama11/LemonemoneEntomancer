@@ -1,12 +1,16 @@
+using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
@@ -134,5 +138,16 @@ public class MyActions
         await CreateCards(ModelDb.Card<Swarm>(),
             amount, owner, combatState,
             pile, positionToUse, preview, previewTime, modifyCardsBeforePreview);
+    }
+
+    public static async Task<PowerModel?> Buzzed(PlayerChoiceContext choiceContext, Creature? target, DynamicVarSource dynVarSource)
+    {
+        if (target == null) return null;
+        return await CommonActions.Apply<BuzzedPower>(choiceContext, target, dynVarSource);
+    }
+    
+    public static async Task<IReadOnlyList<BuzzedPower>> Buzzed(PlayerChoiceContext choiceContext, IEnumerable<Creature> targets, DynamicVarSource dynVarSource)
+    {
+        return await CommonActions.Apply<BuzzedPower>(choiceContext, targets, dynVarSource);
     }
 }

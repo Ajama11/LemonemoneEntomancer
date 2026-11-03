@@ -102,7 +102,8 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
             
             if (DynamicVars.Values.Any(dv => dv is SwarmVar { SkipTooltip: false }))
             {
-                bundles.Add(BundledHoverTipFactory.FromCard<Swarm>());
+                bool upgraded = DynamicVars.Values.Any(dv => dv is SwarmVar { SkipTooltip: false, Upgraded: true });
+                bundles.Add(BundledHoverTipFactory.FromCard<Swarm>(upgraded));
             }
             
             bundles.AddRange(MyBundles);
