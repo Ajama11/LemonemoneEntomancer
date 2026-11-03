@@ -3,6 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
 using Godot;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Basic;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -29,12 +30,14 @@ public class Entomancer : PlaceholderCharacterModel
         ModelDb.Card<Defend>(),
         ModelDb.Card<Defend>(),
         ModelDb.Card<Defend>(),
-        ModelDb.Card<Defend>()
+        ModelDb.Card<Defend>(),
+        ModelDb.Card<BeeAssault>(),
+        ModelDb.Card<CallTheSwarm>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<TheHive>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<EntomancerCardPool>();

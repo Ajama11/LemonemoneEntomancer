@@ -10,5 +10,7 @@
   "LEMONEMONEENTOMANCER-BEE_ASSAULT.title": "Bee Assault",
   "LEMONEMONEENTOMANCER-BEE_ASSAULT.description": "#Deal !D! damage.\nIf at least !Threshold! {Threshold:plural:[gold]Bug[/gold] was|[gold]Bugs[/gold] were} spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-CALL_THE_SWARM.title": "Call the Swarm",
-  "LEMONEMONEENTOMANCER-CALL_THE_SWARM.description": "#Gain !B! [gold]Block[/gold].\nAdd !Swarm! [gold]Swarm(s)[/gold] {IfUpgraded:show:on top of|into} your [gold]Draw Pile[/gold]."
+  "LEMONEMONEENTOMANCER-CALL_THE_SWARM.description": "#Gain !B! [gold]Block[/gold].\nAdd !Swarm! [gold]Swarm(s)[/gold] {IfUpgraded:show:on top of|into} your [gold]Draw Pile[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
+  "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold]."
 }

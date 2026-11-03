@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 
@@ -51,7 +52,12 @@ public class MyActions
             await CardPileCmd.AddGeneratedCardsToCombat(cards, pile, owner, position);
 
         if (pile != PileType.Hand && preview)
-            CardCmd.PreviewCardPileAdd(results, previewTime);
+        {
+            var previewStyle = amount > 5 ?
+                CardPreviewStyle.MessyLayout :
+                CardPreviewStyle.HorizontalLayout;
+            CardCmd.PreviewCardPileAdd(results, previewTime, previewStyle);
+        }
 
         return cards;
     }
