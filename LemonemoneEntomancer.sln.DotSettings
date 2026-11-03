@@ -160,7 +160,7 @@ public class $CLASS$() : LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Lem
         
     ];
     
-    public override HashSet&lt;CardTag&gt; CanonicalTags =&gt; 
+    protected override HashSet&lt;CardTag&gt; CanonicalTags =&gt; 
     [
         
     ];

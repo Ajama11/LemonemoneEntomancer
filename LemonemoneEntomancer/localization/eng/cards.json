@@ -12,5 +12,7 @@
   "LEMONEMONEENTOMANCER-CALL_THE_SWARM.title": "Call the Swarm",
   "LEMONEMONEENTOMANCER-CALL_THE_SWARM.description": "#Gain !B! [gold]Block[/gold].\nAdd !Swarm! [gold]Swarm(s)[/gold] {IfUpgraded:show:on top of|into} your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
-  "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
 }

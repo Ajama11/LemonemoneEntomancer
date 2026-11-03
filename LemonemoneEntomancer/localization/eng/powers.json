@@ -7,5 +7,8 @@
   "LEMONEMONEENTOMANCER-UNNAMED_BUG_ATTACKS_APPLY_BUZZED_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold], apply [blue]{Amount}[/blue] [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-BUZZED_POWER.title": "Buzzed",
   "LEMONEMONEENTOMANCER-BUZZED_POWER.description": "[gold]Buzzed[/gold] creatures deal reduced attack damage and then lose that much [gold]Buzzed[/gold].\nWhenever [gold]Buzzed[/gold] is lost this way, add [blue]1[/blue] [gold]Swarm[/gold] into your [gold]Draw Pile[/gold].",
-  "LEMONEMONEENTOMANCER-BUZZED_POWER.smartDescription": "#{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} attack damage is reduced by [blue]{Amount}[/blue].{OnPlayer:\nWhenever you deal attack damage, reduce [gold]Buzzed[/gold] by the damage that would've been dealt, and add [blue]1[/blue] [gold]Swarm[/gold] into your [gold]Draw Pile[/gold].|{ShouldDisplay:\nAfter [gold]{OwnerName}[/gold] attacks, [gold]Buzzed[/gold] is reduced by [blue]{Display}[/blue], and [blue]1[/blue] [gold]Swarm[/gold] is added into your [gold]Draw Pile[/gold].|}}"
+  "LEMONEMONEENTOMANCER-BUZZED_POWER.smartDescription": "#{OnPlayer:Your|[gold]{OwnerName}'s[/gold]} attack damage is reduced by [blue]{Amount}[/blue].{OnPlayer:\nWhenever you deal attack damage, reduce [gold]Buzzed[/gold] by the damage that would've been dealt, and add [blue]1[/blue] [gold]Swarm[/gold] into your [gold]Draw Pile[/gold].|{ShouldDisplay:\nAfter [gold]{OwnerName}[/gold] attacks, [gold]Buzzed[/gold] is reduced by [blue]{Display}[/blue], and [blue]1[/blue] [gold]Swarm[/gold] is added into your [gold]Draw Pile[/gold].|}}",
+  "LEMONEMONEENTOMANCER-UNNAMED_DARV_FLY_POWER.title": "Darv Fly",
+  "LEMONEMONEENTOMANCER-UNNAMED_DARV_FLY_POWER.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED_DARV_FLY_POWER.smartDescription": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
 }

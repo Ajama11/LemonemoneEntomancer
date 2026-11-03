@@ -8,7 +8,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 [SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible")]
 public class MyEnums
 {
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Fly;
     
     [CustomEnum]

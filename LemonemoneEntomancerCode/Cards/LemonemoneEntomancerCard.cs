@@ -1,11 +1,13 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 
@@ -68,14 +70,19 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
             
             foreach (var keyword in CardKeywordOrder.afterDescription)
             {
-                if (Keywords.Contains(keyword))
+                if (!Keywords.Contains(keyword)) continue;
+                
+                if (keyword == MyEnums.Fly)
                 {
-                    bundles.Add(new BundledHoverTip(
-                        keyword.GetTitle().GetRawText(),
-                        HoverTipFactory.FromKeyword(keyword),
-                        BundledHoverTipManager.Category.End
-                    ));
+                    bundles.Add(new FlyBundle());
+                    continue;
                 }
+                    
+                bundles.Add(new BundledHoverTip(
+                    keyword.GetTitle().GetRawText(),
+                    HoverTipFactory.FromKeyword(keyword),
+                    BundledHoverTipManager.Category.End
+                ));
             }
 
             if (GainsBlock)

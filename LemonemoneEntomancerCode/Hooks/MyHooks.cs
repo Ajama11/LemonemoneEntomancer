@@ -22,4 +22,10 @@ public static class MyHooks
         return HookUtils.DispatchWithContext<IOnBugAttackHit>(player,
             (listener, context) => listener.OnBugAttackHit(context, dealer, result, props, target, cardSource));
     }
+
+    public static Task AfterCardDiscardedAfterFlyCheck(Player player, CardModel card)
+    {
+        return HookUtils.DispatchWithContext<IAfterCardDiscardedAfterFlyCheck>(player,
+            (listener, context) => listener.AfterCardDiscardedAfterFlyCheck(context, card));
+    }
 }
