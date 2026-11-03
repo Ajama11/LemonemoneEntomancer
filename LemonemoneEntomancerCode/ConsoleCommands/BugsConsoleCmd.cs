@@ -42,7 +42,7 @@ public class BugsConsoleCmd : AbstractConsoleCmd
 
     private static async Task ChangeBugs(Player player, int amount, bool silentlyLose)
     {
-        await BugsSingleton.ChangeBugs(player, amount, silentlyLose);
+        await BugsSingleton.ChangeBugs(player, amount, silentlyLose: silentlyLose);
         await BugsSingleton.ValidateBugsInWaiting(player);
     }
 }

@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
@@ -29,6 +30,11 @@ public class Swarm() : LemonemoneEntomancerCard(-1,
     [
         CardKeyword.Ethereal,
         CardKeyword.Unplayable
+    ];
+    
+    public override BundledHoverTipManager MyBundles =>
+    [
+        BundledHoverTipFactory.Static(MyEnums.Bugs)
     ];
 
     public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)

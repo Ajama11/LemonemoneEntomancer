@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Uncommon.Power;
 
-public class UnnamedBugAttacksApplyBuzzed()
+public class Unnamed61BugAttacksApplyBuzzed()
     : LemonemoneEntomancerCard(2,
         CardType.Power, CardRarity.Uncommon,
         TargetType.Self)

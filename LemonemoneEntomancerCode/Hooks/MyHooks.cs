@@ -10,10 +10,10 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 
 public static class MyHooks
 {
-    public static Task OnBugsChanged(Player player, int delta)
+    public static Task OnBugsChanged(Player player, int delta, CardModel? card)
     {
         return HookUtils.DispatchWithContext<IOnBugsChanged>(player,
-            (listener, context) => listener.OnBugsChanged(player, context, delta));
+            (listener, context) => listener.OnBugsChanged(player, context, delta, card));
     }
     
     public static Task OnBugAttackHit(Player player, Creature dealer, DamageResult result, ValueProp props,

@@ -70,7 +70,7 @@ public class $CLASS$() : LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Lem
         
     ];
     
-    public override HashSet&lt;CardTag&gt; CanonicalTags =&gt; 
+    protected override HashSet&lt;CardTag&gt; CanonicalTags =&gt; 
     [
         
     ];
@@ -89,6 +89,18 @@ public class $CLASS$() : LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Lem
         
     }
 }</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Applicability/=Live/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Reformat/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Scope/=C3001E7C0DA78E4487072B7E050D86C5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Scope/=C3001E7C0DA78E4487072B7E050D86C5/CustomProperties/=minimumLanguageVersion/@EntryIndexedValue">2.0</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Scope/=C3001E7C0DA78E4487072B7E050D86C5/Type/@EntryValue">InCSharpFile</s:String>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Shortcut/@EntryValue">aaadamage</s:String>
+	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/ShortenQualifiedReferences/@EntryValue">True</s:Boolean>
+	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=93D5EF1FF0E81043BF56B405A6EACFDE/Text/@EntryValue">await CommonActions.CardAttack(this, play,
+                vfx: VfxCmd.slashPath,
+                tmpSfx: TmpSfx.slashAttack)
+            .Execute(choiceContext);</s:String>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B394FF7A799F0C47A5B83B6E173D2C82/@KeyIndexDefined">True</s:Boolean>
 	<s:Boolean x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B394FF7A799F0C47A5B83B6E173D2C82/Applicability/=File/@EntryIndexedValue">True</s:Boolean>
 	<s:String x:Key="/Default/PatternsAndTemplates/LiveTemplates/Template/=B394FF7A799F0C47A5B83B6E173D2C82/CustomProperties/=Extension/@EntryIndexedValue">cs</s:String>

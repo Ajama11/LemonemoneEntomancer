@@ -70,8 +70,8 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
 
         await PowerCmd.ModifyAmount(choiceContext, this,
             -data.AmountWhenAttackStarted, null, null);
-
-        await BugsSingleton.SpendBugs(Owner.Player!, data.AmountWhenAttackStarted);
+        
+        await BugsSingleton.SpendBugs(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel);
 
         data.CommandToModify = null;
     }
