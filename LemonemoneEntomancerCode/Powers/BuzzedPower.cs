@@ -1,7 +1,9 @@
 using BaseLib.Cards.Variables;
 using BaseLib.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
@@ -10,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -31,6 +34,24 @@ public class BuzzedPower() : LemonemoneEntomancerPower
         new DisplayVar<BuzzedPower>("Display", power => $"{power.GetInternalData<Data>().AmountToLose}"),
         new BoolVar(ShouldDisplay, false)
     ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromCard<Swarm>()
+    ];
+
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
+    {
+        if (power != this || applier?.Player == null) return Task.CompletedTask;
+
+        var data = GetInternalData<Data>();
+        
+        if (!data.Appliers.Contains(applier.Player))
+            data.Appliers.Add(applier.Player);
+        
+        return Task.CompletedTask;
+    }
 
     public override Task BeforeAttack(AttackCommand command)
     {
@@ -79,6 +100,11 @@ public class BuzzedPower() : LemonemoneEntomancerPower
         await PowerCmd.ModifyAmount(choiceContext, this,
             -data.AmountToLose, null, null);
 
+        foreach (var player in data.Appliers)
+        {
+            await MyActions.CreateSwarm(1, player, CombatState);
+        }
+
         data.CommandToModify = null;
         data.AmountToLose = 0;
         DynamicVars[ShouldDisplay].BoolVal = false;
@@ -97,5 +123,6 @@ public class BuzzedPower() : LemonemoneEntomancerPower
     {
         public AttackCommand? CommandToModify;
         public decimal AmountToLose;
+        public readonly List<Player> Appliers = [];
     }
 }

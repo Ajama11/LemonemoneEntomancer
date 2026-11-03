@@ -6,6 +6,7 @@ using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Runs;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Nodes;
@@ -88,6 +89,7 @@ public partial class NBugWidget : Control
 	{
 		// ReSharper disable once UseNullPropagation
 		if (_player == null) return;
+		if (!_amountLabel.IsValid()) return;
 		var combatState = _player.PlayerCombatState;
 		if (combatState == null) return;
 
@@ -99,5 +101,12 @@ public partial class NBugWidget : Control
 
 		// Replace this with a LocString later! The buttons too!
 		_amountLabel?.SetTextAutoSize($"{currentBugs}{bugsInWaitingString} / {maxBugs}");
+	}
+
+	public override void _ExitTree()
+	{
+		BugsSingleton.LocalBugAmountChanged -= UpdateLabel;
+		BugsSingleton.LocalBugSlotsChanged -= UpdateLabel;
+		BugsSingleton.LocalBugsInWaitingChanged -= UpdateLabel;
 	}
 }
