@@ -18,5 +18,7 @@
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.title": "Swarm Slice",
-  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.description": "#Deal !D! damage.\nAdd !Swarm! {IfUpgraded:show:{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}[gold]+[/gold]|{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}} into your [gold]Draw Pile[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.description": "#Deal !D! damage.\nAdd !Swarm! {IfUpgraded:show:{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}[gold]+[/gold]|{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}} into your [gold]Draw Pile[/gold].",
+  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.title": "Swarming Strike",
+  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.description": "#Deal !D! damage.\nGain !SwarmingStrikePower! [gold]Bug Strength[/gold] this turn."
 }
