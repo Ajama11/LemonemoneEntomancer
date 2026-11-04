@@ -24,11 +24,11 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     
-    private const int BugStrengthPlaceholder = 3;
+    private const int BaseBugStrength = 3;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DisplayVar<BugsInWaitingPower>("Display", power => $"{power.Amount * BugStrengthPlaceholder}")
+        new DisplayVar<BugsInWaitingPower>("Display", power => $"{power.Amount * MyHooks.ModifyBugDamageAdditive(null, BaseBugStrength, power.Owner)}")
     ];
 
     public override Task BeforeAttack(AttackCommand command)
@@ -56,6 +56,8 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
         ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (Owner != dealer || !props.IsPoweredAttack()) return 0;
+
+        int totalBugStrength = MyHooks.ModifyBugDamageAdditive(target, BaseBugStrength, dealer);
         
         Data data = GetInternalData<Data>();
         
@@ -64,7 +66,7 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
                cardSource != data.CommandToModify.ModelSource ||
                data.CommandToModify != null &&
                data.CommandToModify.Attacker != dealer
-            ? 0 : Amount * BugStrengthPlaceholder;
+            ? 0 : Amount * totalBugStrength;
     }
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)

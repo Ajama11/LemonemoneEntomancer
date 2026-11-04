@@ -28,4 +28,11 @@ public static class MyHooks
         return HookUtils.DispatchWithContext<IAfterCardDiscardedAfterFlyCheck>(player,
             (listener, context) => listener.AfterCardDiscardedAfterFlyCheck(context, card));
     }
+
+    public static int ModifyBugDamageAdditive(Creature? target, int startingAmount, Creature dealer)
+    {
+        return HookUtils.Aggregate<IModifyBugDamageAdditive, int>(dealer.CombatState!, startingAmount,
+            (listener, current) =>
+                current + listener.ModifyBugDamageAdditive(target, current, dealer));
+    }
 }
