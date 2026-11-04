@@ -77,27 +77,6 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
         
         if (data.CommandToModify != command) return;
 
-        foreach (var list in command.Results)
-        {
-            foreach (var damageResult in list)
-            {
-                var room = NCombatRoom.Instance;
-                var creatureNode = room?.GetCreatureNode(damageResult.Receiver);
-                if (creatureNode == null) continue;
-                
-                for (int i = 0; i < data.AmountWhenAttackStarted; i++)
-                {
-                    Vector2 randomRay = new Vector2(-50, 0).Rotated(Rng.Chaotic.NextFloat((float) (Math.PI * 0.75f)));
-                    
-                    Vector2 startPosition = creatureNode.VfxSpawnPosition + randomRay;
-                    Vector2 endPosition = creatureNode.VfxSpawnPosition;
-        
-                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(
-                        NShivThrowVfx.Create(startPosition, endPosition, new Color("B59A00")));
-                }
-            }
-        }
-
         await PowerCmd.ModifyAmount(choiceContext, this,
             -data.AmountWhenAttackStarted, null, null);
         
@@ -111,6 +90,25 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
     {
         if (dealer != Owner) return;
         if (dealer.Player == null) return;
+        
+        Data data = GetInternalData<Data>();
+        
+        var room = NCombatRoom.Instance;
+        var creatureNode = room?.GetCreatureNode(target);
+        
+        if (creatureNode != null)
+        {
+            for (int i = 0; i < data.AmountWhenAttackStarted; i++)
+            {
+                Vector2 randomRay = new Vector2(-50, 0).Rotated(Rng.Chaotic.NextFloat((float)(Math.PI * 0.75f)));
+
+                Vector2 startPosition = creatureNode.VfxSpawnPosition + randomRay;
+                Vector2 endPosition = creatureNode.VfxSpawnPosition;
+
+                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(
+                    NShivThrowVfx.Create(startPosition, endPosition, new Color("B59A00")));
+            }
+        }
 
         await MyHooks.OnBugAttackHit(dealer.Player, dealer, result, props, target, cardSource);
     }
