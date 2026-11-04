@@ -1,4 +1,6 @@
+using BaseLib.Abstracts;
 using BaseLib.Cards.Variables;
+using BaseLib.Extensions;
 using Godot;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
@@ -19,7 +21,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 
-public class BugsInWaitingPower() : LemonemoneEntomancerPower
+public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -111,6 +113,21 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower
         if (dealer.Player == null) return;
 
         await MyHooks.OnBugAttackHit(dealer.Player, dealer, result, props, target, cardSource);
+    }
+
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
+    {
+        if (power != this && power is not IModifyBugDamageAdditive) return Task.CompletedTask;
+
+        this.InvokeSecondAmountChanged();
+        
+        return Task.CompletedTask;
+    }
+
+    public string GetSecondAmount()
+    {
+        return ((DisplayVar<BugsInWaitingPower>) DynamicVars["Display"]).ToString();
     }
 
     protected override object InitInternalData() => new Data();
