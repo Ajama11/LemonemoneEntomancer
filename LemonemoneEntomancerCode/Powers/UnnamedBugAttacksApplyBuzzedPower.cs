@@ -1,3 +1,4 @@
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
@@ -23,7 +24,7 @@ public class UnnamedBugAttacksApplyBuzzedPower() : LemonemoneEntomancerPower, IO
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.Static(MyEnums.Bugs),
-        HoverTipFactory.FromPower<BuzzedPower>()
+        ..new BuzzedBundle().HoverTips
     ];
 
     public async Task OnBugAttackHit(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,

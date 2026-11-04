@@ -11,14 +11,16 @@
   "LEMONEMONEENTOMANCER-BEE_ASSAULT.description": "#Deal !D! damage.\nIf at least !Threshold! {Threshold:plural:[gold]Bug[/gold] was|[gold]Bugs[/gold] were} spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-STING.title": "Sting",
   "LEMONEMONEENTOMANCER-STING.description": "#Deal !D! damage.\nApply !BuzzedPower! [gold]Buzzed[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.title": "Bug Attacks Apply Buzzed",
+  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.title": "11 Swarm Slice",
+  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.description": "#Deal !D! damage.\nAdd !Swarm! {IfUpgraded:show:{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}[gold]+[/gold]|{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}} into your [gold]Draw Pile[/gold].",
+  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.title": "Swarming Strike",
+  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.description": "#Deal !D! damage.\nGain !SwarmingStrikePower! [gold]Bug Strength[/gold] this turn.",
+  "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.title": "13 Throw Dagger",
+  "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.description": "#Deal !D! damage.\nDiscard !Discard! card(s).\nDraw !C! card(s).",
+  "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.title": "61 Bugs Apply Buzzed",
   "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.description": "#Whenever an Attack deals damage using [gold]Bugs[/gold], apply !UnnamedBugAttacksApplyBuzzedPower! [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
-  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.title": "Swarm Slice",
-  "LEMONEMONEENTOMANCER-UNNAMED11_SLICE_SWARM.description": "#Deal !D! damage.\nAdd !Swarm! {IfUpgraded:show:{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}[gold]+[/gold]|{Swarm:plural:[gold]Swarm[/gold]|[gold]Swarms[/gold]}} into your [gold]Draw Pile[/gold].",
-  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.title": "Swarming Strike",
-  "LEMONEMONEENTOMANCER-SWARMING_STRIKE.description": "#Deal !D! damage.\nGain !SwarmingStrikePower! [gold]Bug Strength[/gold] this turn."
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
 }

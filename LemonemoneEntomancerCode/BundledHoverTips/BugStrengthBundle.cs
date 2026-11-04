@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 
 public class BugStrengthBundle() : BundledHoverTip(
-    nameof(FlyBundle),
+    nameof(BugStrengthBundle),
     [
         HoverTipFactory.FromPower<BugStrengthPower>(),
         HoverTipFactory.Static(MyEnums.Bugs)

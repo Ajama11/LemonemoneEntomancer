@@ -4,6 +4,7 @@ using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
@@ -149,5 +151,36 @@ public class MyActions
     public static async Task<IReadOnlyList<BuzzedPower>> Buzzed(PlayerChoiceContext choiceContext, IEnumerable<Creature> targets, DynamicVarSource dynVarSource)
     {
         return await CommonActions.Apply<BuzzedPower>(choiceContext, targets, dynVarSource);
+    }
+
+    public static async Task<List<CardModel>> DiscardSelection(PlayerChoiceContext choiceContext, CardModel sourceCard, MyEnums.DiscardSelectionType selectionType = MyEnums.DiscardSelectionType.Forced, int amountOverride = -1)
+    {
+        int amount = amountOverride != -1 ?
+            amountOverride :
+            sourceCard.DynamicVars.Discard.IntValue;
+
+        CardSelectorPrefs prefs = selectionType switch
+        {
+            MyEnums.DiscardSelectionType.Forced =>
+                new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt,
+                amount),
+            MyEnums.DiscardSelectionType.UpTo =>
+                new CardSelectorPrefs(MySelectionPrompts.DiscardUpTo, 0, amount),
+            MyEnums.DiscardSelectionType.Any =>
+                new CardSelectorPrefs(MySelectionPrompts.DiscardAny, 0,
+                Really.bigNumber),
+            _ => throw new ArgumentOutOfRangeException(nameof(selectionType), selectionType, null)
+        };
+
+        List<CardModel> discards =
+            (await CardSelectCmd.FromHandForDiscard(choiceContext, sourceCard.Owner, prefs, null, sourceCard))
+            .ToList();
+
+        foreach (var card in discards)
+        {
+            await CardCmd.Discard(choiceContext, card);
+        }
+
+        return discards;
     }
 }

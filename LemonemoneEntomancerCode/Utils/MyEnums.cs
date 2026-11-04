@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 
 [SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible")]
+[SuppressMessage("ReSharper", "UnassignedField.Global")]
 public class MyEnums
 {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
@@ -13,4 +14,11 @@ public class MyEnums
     
     [CustomEnum]
     public static StaticHoverTip Bugs;
+    
+    public enum DiscardSelectionType
+    {
+        Forced,
+        UpTo,
+        Any
+    }
 }

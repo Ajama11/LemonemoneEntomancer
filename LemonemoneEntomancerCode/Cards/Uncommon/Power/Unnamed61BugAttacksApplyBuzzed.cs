@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
@@ -22,7 +23,7 @@ public class Unnamed61BugAttacksApplyBuzzed()
     public override BundledHoverTipManager MyBundles =>
     [
         BundledHoverTipFactory.Static(MyEnums.Bugs),
-        BundledHoverTipFactory.FromPower<BuzzedPower>()
+        new BuzzedBundle()
     ];
 
     protected override async Task OnPlay(
