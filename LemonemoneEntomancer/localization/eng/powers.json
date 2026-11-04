@@ -13,5 +13,8 @@
   "LEMONEMONEENTOMANCER-UNNAMED_DARV_FLY_POWER.smartDescription": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
   "LEMONEMONEENTOMANCER-BUG_STRENGTH_POWER.title": "Bug Strength",
   "LEMONEMONEENTOMANCER-BUG_STRENGTH_POWER.description": "Adds additional damage to each [gold]Bug[/gold].",
-  "LEMONEMONEENTOMANCER-BUG_STRENGTH_POWER.smartDescription": "{Amount:cond:<0?Decreases|Increases} attack damage of each [gold]Bug[/gold] by [blue]{Amount:abs()}[/blue]."
+  "LEMONEMONEENTOMANCER-BUG_STRENGTH_POWER.smartDescription": "{Amount:cond:<0?Decreases|Increases} attack damage of each [gold]Bug[/gold] by [blue]{Amount:abs()}[/blue].",
+  "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.title": "Bugs Next Turn",
+  "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.description": "At the start of your next turn, gain [gold]Bugs[/gold].",
+  "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.smartDescription": "#At the start of your next turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold]."
 }

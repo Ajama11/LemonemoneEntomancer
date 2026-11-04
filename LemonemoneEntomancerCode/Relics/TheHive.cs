@@ -26,12 +26,12 @@ public class TheHive() : LemonemoneEntomancerRelic
     {
         if (room is not CombatRoom) return;
 
-        await MyActions.GainBugs(Owner, DynamicVars[Combat].IntValue);
+        await MyActions.GainBugs(Owner, DynamicVars[Combat].IntValue + DynamicVars[Turn].IntValue, false);
     }
 
     public override async Task AfterEnergyReset(Player player)
     {
-        if (player != Owner) return;
+        if (player != Owner || player.PlayerCombatState!.TurnNumber == 1) return;
         
         await MyActions.GainBugs(Owner, DynamicVars[Turn].IntValue);
     }

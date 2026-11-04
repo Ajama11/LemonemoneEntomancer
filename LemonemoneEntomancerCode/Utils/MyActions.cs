@@ -98,14 +98,14 @@ public class MyActions
     
     #endregion
 
-    public static async Task GainBugs(CardModel sourceCard)
+    public static async Task GainBugs(CardModel sourceCard, bool playAudio = true)
     {
-        await GainBugs(sourceCard.Owner, sourceCard.DynamicVars.Bugs.IntValue);
+        await GainBugs(sourceCard.Owner, sourceCard.DynamicVars.Bugs.IntValue, playAudio: playAudio);
     }
     
-    public static async Task GainBugs(Player player, int amount)
+    public static async Task GainBugs(Player player, int amount, bool playAudio = true)
     {
-        await BugsSingleton.GainBugs(player, amount);
+        await BugsSingleton.GainBugs(player, amount, playAudio: playAudio);
     }
 
     public static async Task CreateSwarm(

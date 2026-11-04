@@ -17,6 +17,8 @@
   "LEMONEMONEENTOMANCER-SWARMING_STRIKE.description": "#Deal !D! damage.\nGain !SwarmingStrikePower! [gold]Bug Strength[/gold] this turn.",
   "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.title": "13 Throw Dagger",
   "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.description": "#Deal !D! damage.\nDiscard !Discard! card(s).\nDraw !C! card(s).",
+  "LEMONEMONEENTOMANCER-UNNAMED15_BUGS_NEXT_TURN.title": "15 Bugs Next Turn",
+  "LEMONEMONEENTOMANCER-UNNAMED15_BUGS_NEXT_TURN.description": "#Deal !D! damage.\nNext turn, gain !BugsNextTurn! [gold]Bug(s)[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.title": "61 Bugs Apply Buzzed",
   "LEMONEMONEENTOMANCER-UNNAMED61_BUG_ATTACKS_APPLY_BUZZED.description": "#Whenever an Attack deals damage using [gold]Bugs[/gold], apply !UnnamedBugAttacksApplyBuzzedPower! [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",

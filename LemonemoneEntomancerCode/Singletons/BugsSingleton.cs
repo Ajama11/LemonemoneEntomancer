@@ -30,7 +30,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
         return Task.CompletedTask;
     }
 
-    public static async Task GainBugs(Player player, int amount, CardModel? card = null)
+    public static async Task GainBugs(Player player, int amount, CardModel? card = null, bool playAudio = true)
     {
         await ChangeBugs(player, amount, card);
     }
