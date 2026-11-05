@@ -36,7 +36,7 @@ public class Unnamed13DaggerThrow() : LemonemoneEntomancerCard(
 
         await MyActions.DiscardSelection(choiceContext, this);
 
-        await CommonActions.Draw(this, choiceContext);
+        await MyActions.Draw(choiceContext, this);
     }
 
     protected override void OnUpgrade()

@@ -16,7 +16,7 @@ public class FlySingleton() : CustomSingletonModel(HookType.Combat)
     {
         if (card.Keywords.Contains(MyEnums.Fly))
         {
-            var target = card.Rng.CombatTargets.NextItem(card.CombatState!.HittableEnemies);
+            var target = card.Rng.CombatTargets.NextItem(card.AllEnemies);
             if (target == null) return;
 
             await CardPileCmd.Add(card, PileType.Play);

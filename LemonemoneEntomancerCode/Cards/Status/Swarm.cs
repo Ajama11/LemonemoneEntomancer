@@ -41,7 +41,7 @@ public class Swarm() : LemonemoneEntomancerCard(-1,
     {
         if (card != this) return;
 
-        await CommonActions.Draw(this, choiceContext);
+        await MyActions.Draw(choiceContext, this);
 
         await MyActions.GainBugs(this);
     }

@@ -63,7 +63,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="LemonemoneEntomancerCode\Cards\Common\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Multiplayer\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Power\" />

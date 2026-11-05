@@ -120,6 +120,23 @@ public class MyActions
                 CardPilePosition.Random :
                 CardPilePosition.Bottom);
 
+        Func<List<CardModel>, List<CardModel>> defaultModifyCards = list =>
+        {
+            if (sourceCard.DynamicVars.Swarm.Upgraded)
+                foreach (var card in list) CardCmd.Upgrade(card);
+            return list;
+        };
+
+        if (modifyCardsBeforePreview != null)
+        {
+            var parameterFunc = modifyCardsBeforePreview;
+            modifyCardsBeforePreview = list => defaultModifyCards(parameterFunc(list));
+        }
+        else
+        {
+            modifyCardsBeforePreview = defaultModifyCards;
+        }
+
         await CreateCards(ModelDb.Card<Swarm>(),
             sourceCard.DynamicVars.Swarm.IntValue, sourceCard,
             pile, positionToUse, preview, previewTime, modifyCardsBeforePreview);
@@ -129,13 +146,31 @@ public class MyActions
         int amount, Player owner, ICombatState combatState,
         PileType pile = PileType.Draw, CardPilePosition? position = null,
         bool preview = true, float previewTime = 1.2f,
-        Func<List<CardModel>, List<CardModel>>? modifyCardsBeforePreview = null)
+        Func<List<CardModel>, List<CardModel>>? modifyCardsBeforePreview = null,
+        bool upgrade = false)
     {
         var positionToUse =
             position ?? 
             (pile == PileType.Draw ?
                 CardPilePosition.Random :
                 CardPilePosition.Bottom);
+        
+        Func<List<CardModel>, List<CardModel>> defaultModifyCards = list =>
+        {
+            if (upgrade)
+                foreach (var card in list) CardCmd.Upgrade(card);
+            return list;
+        };
+
+        if (modifyCardsBeforePreview != null)
+        {
+            var parameterFunc = modifyCardsBeforePreview;
+            modifyCardsBeforePreview = list => defaultModifyCards(parameterFunc(list));
+        }
+        else
+        {
+            modifyCardsBeforePreview = defaultModifyCards;
+        }
         
         await CreateCards(ModelDb.Card<Swarm>(),
             amount, owner, combatState,
@@ -182,5 +217,11 @@ public class MyActions
         }
 
         return discards;
+    }
+
+    // The reversed order annoys me otherwise...
+    public static async Task<IEnumerable<CardModel>> Draw(PlayerChoiceContext context, CardModel card)
+    {
+        return await CommonActions.Draw(card, context);
     }
 }

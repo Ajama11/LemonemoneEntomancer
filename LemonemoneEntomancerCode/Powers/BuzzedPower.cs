@@ -100,9 +100,12 @@ public class BuzzedPower() : LemonemoneEntomancerPower
         await PowerCmd.ModifyAmount(choiceContext, this,
             -data.AmountToLose, null, null);
 
-        foreach (var player in data.Appliers)
+        if (data.AmountToLose > 0)
         {
-            await MyActions.CreateSwarm(1, player, CombatState);
+            foreach (var player in data.Appliers)
+            {
+                await MyActions.CreateSwarm(1, player, CombatState);
+            }
         }
 
         data.CommandToModify = null;
