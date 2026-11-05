@@ -17,6 +17,8 @@
   "LEMONEMONEENTOMANCER-SWARMING_STRIKE.description": "#Deal !D! damage.\nGain !SwarmingStrikePower! [gold]Bug Strength[/gold] this turn.",
   "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.title": "13 Throw Dagger",
   "LEMONEMONEENTOMANCER-UNNAMED13_DAGGER_THROW.description": "#Deal !D! damage.\nDiscard !Discard! card(s).\nDraw !C! card(s).",
+  "LEMONEMONEENTOMANCER-BUG_BITE.title": "Bug Bite",
+  "LEMONEMONEENTOMANCER-BUG_BITE.description": "#Deal !D! damage.\nGain !BugBitePower! [gold]Bug Strength[/gold] this turn.",
   "LEMONEMONEENTOMANCER-UNNAMED15_BUGS_NEXT_TURN.title": "15 Bugs Next Turn",
   "LEMONEMONEENTOMANCER-UNNAMED15_BUGS_NEXT_TURN.description": "#Deal !D! damage.\nNext turn, gain !BugsNextTurn! [gold]Bug(s)[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED16_AOE.title": "16 Aoe",
