@@ -190,8 +190,9 @@ public class MyActions
 
     public static async Task<List<CardModel>> DiscardSelection(PlayerChoiceContext choiceContext, CardModel sourceCard, MyEnums.DiscardSelectionType selectionType = MyEnums.DiscardSelectionType.Forced, int amountOverride = -1)
     {
-        int amount = amountOverride != -1 ?
-            amountOverride :
+        int amount =
+            amountOverride != -1 ? amountOverride :
+            selectionType == MyEnums.DiscardSelectionType.Any ? Really.bigNumber :
             sourceCard.DynamicVars.Discard.IntValue;
 
         CardSelectorPrefs prefs = selectionType switch
@@ -203,7 +204,7 @@ public class MyActions
                 new CardSelectorPrefs(MySelectionPrompts.DiscardUpTo, 0, amount),
             MyEnums.DiscardSelectionType.Any =>
                 new CardSelectorPrefs(MySelectionPrompts.DiscardAny, 0,
-                Really.bigNumber),
+                amount),
             _ => throw new ArgumentOutOfRangeException(nameof(selectionType), selectionType, null)
         };
 
