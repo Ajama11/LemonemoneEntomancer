@@ -68,7 +68,6 @@
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Power\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Uncommon\Skill\" />
         <Folder Include="LemonemoneEntomancer\images\card_portraits\big\"/>
         <Folder Include="LemonemoneEntomancer\images\powers\big\"/>

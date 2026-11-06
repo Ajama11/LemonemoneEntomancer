@@ -1,5 +1,6 @@
 using HarmonyLib;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -19,9 +20,13 @@ public static class OffclassHoverTipsPatch
 
         if (__instance.Keywords.Contains(MyEnums.Fly) && !resultToReturn.Contains(HoverTipFactory.FromPower<BuzzedPower>()))
         {
-            resultToReturn.Insert(
-                resultToReturn.IndexOf(HoverTipFactory.FromKeyword(MyEnums.Fly)) + 1, 
+            int flyIndex = resultToReturn.IndexOf(HoverTipFactory.FromKeyword(MyEnums.Fly));
+            
+            resultToReturn.Insert(flyIndex + 1, 
                 HoverTipFactory.FromPower<BuzzedPower>());
+            
+            resultToReturn.Insert(flyIndex + 2, 
+                HoverTipFactory.FromCard<Swarm>());
         }
 
         return resultToReturn;

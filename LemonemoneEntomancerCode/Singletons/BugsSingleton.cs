@@ -36,13 +36,13 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
     }
     
     /// If silently losing Bugs NOT through the widget, call ValidateBugsInWaiting()!
-    public static async Task SpendBugs(Player player, int amount, CardModel? card = null, bool silentlyLose = false)
+    public static async Task SpendBugs(Player player, int amount, CardModel? card = null, List<Creature>? targets = null, bool silentlyLose = false)
     {
-        await ChangeBugs(player, -amount, card, silentlyLose);
+        await ChangeBugs(player, -amount, card, targets, silentlyLose);
     }
     
     /// If silently losing Bugs NOT through the widget, call ValidateBugsInWaiting()!
-    public static async Task ChangeBugs(Player player, int delta, CardModel? card = null, bool silentlyLose = false)
+    public static async Task ChangeBugs(Player player, int delta, CardModel? card = null, List<Creature>? targets = null, bool silentlyLose = false)
     {
         var combatState = player.PlayerCombatState;
         if (combatState == null) return;
@@ -52,7 +52,7 @@ public class BugsSingleton() : CustomSingletonModel(HookType.Combat)
         BugAmount[combatState] = Math.Clamp(BugAmount[combatState] + delta, 0, BugSlots[combatState]);
         int actualDelta = BugAmount[combatState] - previousBugAmount;
 
-        if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta, card);
+        if (!silentlyLose && actualDelta != 0) await MyHooks.OnBugsChanged(player, actualDelta, card, targets);
         
         if (LocalContext.IsMe(player)) LocalBugAmountChanged?.Invoke();
     }

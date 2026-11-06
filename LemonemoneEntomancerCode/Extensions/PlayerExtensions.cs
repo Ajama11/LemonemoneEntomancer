@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -35,5 +36,9 @@ public static class PlayerExtensions
             .ToList() ?? [];
 
         public RunRngSet Rng => player.RunState.Rng;
+
+        public int Bugs => player.PlayerCombatState != null ?
+            BugsSingleton.BugAmount[player.PlayerCombatState] :
+            0;
     }
 }

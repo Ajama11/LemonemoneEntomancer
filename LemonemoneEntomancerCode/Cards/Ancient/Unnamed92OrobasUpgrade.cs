@@ -8,6 +8,7 @@ using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -46,7 +47,7 @@ public class Unnamed92OrobasUpgrade() : LemonemoneEntomancerCard(
             .Execute(choiceContext);
     }
     
-    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card)
+    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card, List<Creature>? targets)
     {
         if (card != this) return;
 
