@@ -16,5 +16,8 @@
   "LEMONEMONEENTOMANCER-BUG_STRENGTH_POWER.smartDescription": "{Amount:cond:<0?Decreases|Increases} attack damage of each [gold]Bug[/gold] by [blue]{Amount:abs()}[/blue].",
   "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.title": "Bugs Next Turn",
   "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.description": "At the start of your next turn, gain [gold]Bugs[/gold].",
-  "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.smartDescription": "#At the start of your next turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold]."
+  "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.smartDescription": "#At the start of your next turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.title": "42 Re Buzzed",
+  "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.description": "The next time this creature loses [gold]Buzzed[/gold], it gains that much [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.smartDescription": "The next {Amount:plural:time|[blue]{}[/blue] times} this creature loses [gold]Buzzed[/gold], it gains that much [gold]Buzzed[/gold]."
 }
