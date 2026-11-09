@@ -1,6 +1,7 @@
 using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Audio.Debug;
@@ -28,8 +29,9 @@ public class Unnamed41XAttack() : LemonemoneEntomancerCard(0,
         CardPlay play)
     {
         int xValue = ResolveEnergyXValue();
+        int drawAmount = IsUpgraded ? xValue + 1 : xValue;
 
-        await CardPileCmd.Draw(choiceContext, xValue, Owner);
+        await CardPileCmd.Draw(choiceContext, drawAmount, Owner);
 
         await CommonActions.CardAttack(this, play,
                 hitCount: xValue,
@@ -42,6 +44,6 @@ public class Unnamed41XAttack() : LemonemoneEntomancerCard(0,
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars.Discard.UpgradeValueBy(1);
     }
 }

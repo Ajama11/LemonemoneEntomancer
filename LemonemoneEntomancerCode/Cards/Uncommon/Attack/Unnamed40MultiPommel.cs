@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Uncommon.Attack;
 
-public class Unnamed40ReduceHits() : LemonemoneEntomancerCard(
+public class Unnamed40MultiPommel() : LemonemoneEntomancerCard(
     1, CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -38,7 +38,6 @@ public class Unnamed40ReduceHits() : LemonemoneEntomancerCard(
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
-        DynamicVars.Repeat.UpgradeValueBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 }
