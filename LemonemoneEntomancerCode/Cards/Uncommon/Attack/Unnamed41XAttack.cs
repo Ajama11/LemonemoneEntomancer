@@ -21,7 +21,8 @@ public class Unnamed41XAttack() : LemonemoneEntomancerCard(0,
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8, DamageProps.card)
+        new DamageVar(8, DamageProps.card),
+        new DiscardVar(2)
     ];
 
     protected override async Task OnPlay(

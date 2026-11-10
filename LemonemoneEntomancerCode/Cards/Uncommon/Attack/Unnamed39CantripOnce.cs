@@ -18,7 +18,8 @@ public class Unnamed39CantripOnce() : LemonemoneEntomancerCard(
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6, DamageProps.card)
+        new DamageVar(6, DamageProps.card),
+        new CardsVar(1)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
