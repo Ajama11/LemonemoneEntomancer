@@ -19,5 +19,12 @@
   "LEMONEMONEENTOMANCER-BUGS_NEXT_TURN.smartDescription": "#At the start of your next turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.title": "42 Re Buzzed",
   "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.description": "The next time this creature loses [gold]Buzzed[/gold], it gains that much [gold]Buzzed[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.smartDescription": "The next {Amount:plural:time|[blue]{}[/blue] times} this creature loses [gold]Buzzed[/gold], it gains that much [gold]Buzzed[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED42_RE_BUZZED_POWER.smartDescription": "The next {Amount:plural:time|[blue]{}[/blue] times} this creature loses [gold]Buzzed[/gold], it gains that much [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-SWEET_NECTAR_POWER.title": "Sweet Nectar",
+  "LEMONEMONEENTOMANCER-SWEET_NECTAR_POWER.description": "Next turn, gain [blue]3[/blue] [gold]Bug Strength[/gold] that turn.",
+  "LEMONEMONEENTOMANCER-SWEET_NECTAR_POWER.smartDescription": "Next turn, gain [blue]{Amount}[/blue] [gold]Bug Strength[/gold] that turn.",
+  "LEMONEMONEENTOMANCER-SWEETEST_NECTAR_POWER.title": "Sweetest Nectar",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.title": "50 Buzzed Fumes",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.description": "At the start of its turn, this creature gains [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.smartDescription": "At the start of its turn, this creature gains [blue]{Amount}[/blue] [gold]Buzzed[/gold]."
 }

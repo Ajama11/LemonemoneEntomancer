@@ -54,7 +54,7 @@
   "LEMONEMONEENTOMANCER-BOWLING.title": "Bowling",
   "LEMONEMONEENTOMANCER-BOWLING.description": "#Deal !D! damage.\nGain [gold]Block[/gold] equal to damage dealt.",
   "LEMONEMONEENTOMANCER-UNNAMED32_BOWLBUG_ROCK.title": "32 Bowlbug Rock",
-  "LEMONEMONEENTOMANCER-UNNAMED32_BOWLBUG_ROCK.description": "#Deal !D! damage.\nApply !BuzzedPower! [gold]Buzzed[/gold] for each [gold]Bug[/gold] spent on this.",
+  "LEMONEMONEENTOMANCER-UNNAMED32_BOWLBUG_ROCK.description": "#Deal !D! damage.\nApply !BuzzedPower! [gold]Buzzed[/gold] for each [gold]Bug[/gold] spent on this.",
   "LEMONEMONEENTOMANCER-UNNAMED33_SCRAPE_SWARM.title": "33 Scrape Swarm",
   "LEMONEMONEENTOMANCER-UNNAMED33_SCRAPE_SWARM.description": "#Deal !D! damage.\nDraw !C! card(s).\nDiscard ALL [gold]Swarms[/gold] in your [gold]Hand[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED34_ENDLESS_FLYGONY.title": "34 Endless Flygony",
@@ -85,5 +85,17 @@
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
-  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED45_DOUBLE_DIP.title": "45 Double Dip",
+  "LEMONEMONEENTOMANCER-UNNAMED45_DOUBLE_DIP.description": "#ALL enemies lose [gold]Strength[/gold] this turn equal to their [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED46_DENSE_BLOCK.title": "46 Dense Block",
+  "LEMONEMONEENTOMANCER-UNNAMED46_DENSE_BLOCK.description": "#Gain !B! [gold]Block[/gold].\nApply !BuzzedPower! [gold]Buzzed[/gold] to yourself.",
+  "LEMONEMONEENTOMANCER-WAGGLE_DANCE.title": "Waggle Dance",
+  "LEMONEMONEENTOMANCER-WAGGLE_DANCE.description": "#(Waiting on designer)\n{IfUpgraded:show:Add|If you have less than 4 [gold]Bugs[/gold], add} !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED48_INFINITE_WEAK.title": "48 Infinite Weak",
+  "LEMONEMONEENTOMANCER-UNNAMED48_INFINITE_WEAK.description": "#Discard any number of cards.\nApply !WeakPower! [gold]Weak[/gold] for each card discarded this way.{IfUpgraded:show:\nDraw !C! card(s).|}",
+  "LEMONEMONEENTOMANCER-SWEET_NECTAR.title": "Sweet Nectar",
+  "LEMONEMONEENTOMANCER-SWEET_NECTAR.description": "#Next turn, gain !SweetNectarPower! [gold]Bug Strength[/gold] that turn.{IfUpgraded:show:\nAdd !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].|}",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES.title": "50 Buzzed Fumes",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES.description": "#Enemy gains X{IfUpgraded:show:+1|} [gold]Buzzed[/gold] at the start of its turns."
 }
