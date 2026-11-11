@@ -17,8 +17,12 @@ public class WaggleDance() : LemonemoneEntomancerCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
+    private const string CalculatedTimes = "CalculatedTimes";
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new BlockVar(2, BlockProps.card),
+        ..MakeCalculatedVar(CalculatedTimes, 0, static (card, _) => card.Owner.Bugs),
         new SwarmVar(1)
     ];
 
@@ -31,7 +35,9 @@ public class WaggleDance() : LemonemoneEntomancerCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        decimal times = DynamicVars[CalculatedTimes].Calculate(null);
 
+        for (int i = 0; i < times; i++) await CommonActions.CardBlock(this, play);
 
         if (IsUpgraded || Owner.Bugs < 4) await MyActions.CreateSwarm(this);
     }
