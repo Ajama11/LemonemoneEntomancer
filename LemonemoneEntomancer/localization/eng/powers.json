@@ -26,5 +26,15 @@
   "LEMONEMONEENTOMANCER-SWEETEST_NECTAR_POWER.title": "Sweetest Nectar",
   "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.title": "50 Buzzed Fumes",
   "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.description": "At the start of its turn, this creature gains [gold]Buzzed[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.smartDescription": "At the start of its turn, this creature gains [blue]{Amount}[/blue] [gold]Buzzed[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES_POWER.smartDescription": "At the start of its turn, this creature gains [blue]{Amount}[/blue] [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED59_FIRST_SWARM_POWER.title": "59 First Swarm",
+  "LEMONEMONEENTOMANCER-UNNAMED59_FIRST_SWARM_POWER.description": "The first time you draw a [gold]Swarm[/gold] each turn, [gold]Upgrade[/gold] it.",
+  "LEMONEMONEENTOMANCER-UNNAMED59_FIRST_SWARM_POWER.smartDescription": "The first {Amount:plural:time|[blue]{}[/blue] times} you draw a [gold]Swarm[/gold] each turn, [gold]Upgrade[/gold] it.",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_BASE_POWER.title": "60 Call Home",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_BASE_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [blue]3[/blue] or more [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_BASE_POWER.smartDescription": "#At the start of your turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold] for each enemy with {Threshold:cond:>1?[blue]{}[/blue] or more |}[gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.title": "60 Call Home",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [blue]3[/blue] or more [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.title": "60 Call Home: Upgraded",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [gold]Buzzed[/gold]."
 }
