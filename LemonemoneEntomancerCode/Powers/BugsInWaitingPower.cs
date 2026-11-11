@@ -85,7 +85,9 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
             .Select(result => result.Receiver)
             .ToList();
         
-        await BugsSingleton.SpendBugs(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets);
+        await BugsSingleton.LoseBugs(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets, true);
+        
+        // Invoke IOnBugsSpent, a separate hook from IOnBugsChanged because Hive Form needs to know the difference between Lose and Spend. Actually a lot of cards can be changed to IOnBugsSpent, since I forgor about Hive Form...
 
         data.CommandToModify = null;
     }

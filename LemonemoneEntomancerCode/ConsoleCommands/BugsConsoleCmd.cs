@@ -36,13 +36,13 @@ public class BugsConsoleCmd : AbstractConsoleCmd
         string gainedOrLost = amount >= 0 ? "Gained" : "Lost";
         string pluralBugs = Math.Abs(amount) == 1 ? "Bug" : "Bugs";
 
-        Task task = ChangeBugs(issuingPlayer!, amount, amount < 0);
+        Task task = ChangeBugs(issuingPlayer!, amount);
         return new CmdResult(task, success: true, $"{gainedOrLost} {amount} {pluralBugs}");
     }
 
-    private static async Task ChangeBugs(Player player, int amount, bool silentlyLose)
+    private static async Task ChangeBugs(Player player, int amount)
     {
-        await BugsSingleton.ChangeBugs(player, amount, silentlyLose: silentlyLose);
+        await BugsSingleton.ChangeBugs(player, amount);
         await BugsSingleton.ValidateBugsInWaiting(player);
     }
 }
