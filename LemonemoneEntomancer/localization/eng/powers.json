@@ -36,5 +36,14 @@
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.title": "60 Call Home",
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [blue]3[/blue] or more [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.title": "60 Call Home: Upgraded",
-  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [gold]Buzzed[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [gold]Buzzed[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED63_BUZZED_ENERGY_POWER.title": "63 Buzzed Energy",
+  "LEMONEMONEENTOMANCER-UNNAMED63_BUZZED_ENERGY_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} and apply [blue]3[/blue] [gold]Buzzed[/gold] to yourself.",
+  "LEMONEMONEENTOMANCER-UNNAMED63_BUZZED_ENERGY_POWER.smartDescription": "At the start of your turn, gain {Amount:energyIcons()} and apply [blue]{BuzzedAmount}[/blue] [gold]Buzzed[/gold] to yourself.",
+  "LEMONEMONEENTOMANCER-UNNAMED64_NO_FLY_DRAW_POWER.title": "64 No Fly Draw",
+  "LEMONEMONEENTOMANCER-UNNAMED64_NO_FLY_DRAW_POWER.description": "Whenever you discard a card without [gold]Fly[/gold], draw [blue]1[/blue] card at the start of your next turn.",
+  "LEMONEMONEENTOMANCER-UNNAMED64_NO_FLY_DRAW_POWER.smartDescription": "#Whenever you discard a card without [gold]Fly[/gold], draw [blue]{Amount}[/blue] card(s) at the start of your next turn.",
+  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.title": "65 Bug Attacks Block",
+  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.description": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]2[/blue] [gold]Block[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]{Amount}[/blue] [gold]Block[/gold]."
 }
