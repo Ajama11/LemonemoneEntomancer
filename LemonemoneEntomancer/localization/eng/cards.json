@@ -91,7 +91,7 @@
   "LEMONEMONEENTOMANCER-SWEET_NECTAR.title": "Sweet Nectar",
   "LEMONEMONEENTOMANCER-SWEET_NECTAR.description": "#Next turn, gain !SweetNectarPower! [gold]Bug Strength[/gold] that turn.{IfUpgraded:show:\nAdd !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].|}",
   "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES.title": "50 Buzzed Fumes",
-  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES.description": "#Enemy gains X{IfUpgraded:show:+1|} [gold]Buzzed[/gold] at the start of its turns.",
+  "LEMONEMONEENTOMANCER-UNNAMED50_BUZZED_FUMES.description": "#At the start of each of the enemy's turns, apply X{IfUpgraded:show:+1|} [gold]Buzzed[/gold] to it.",
   "LEMONEMONEENTOMANCER-UNNAMED51_INSTANT_BUGS.title": "51 Instant Bugs",
   "LEMONEMONEENTOMANCER-UNNAMED51_INSTANT_BUGS.description": "#Gain !Bugs! [gold]Bug(s)[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED52_ESCAPE_PLAN.title": "52 Escape Plan",

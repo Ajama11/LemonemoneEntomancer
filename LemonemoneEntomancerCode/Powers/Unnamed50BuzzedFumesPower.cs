@@ -18,6 +18,9 @@ public class Unnamed50BuzzedFumesPower()
     public override PowerStackType StackType =>
         PowerStackType.Counter;
 
+    public override PowerInstanceType InstanceType =>
+        PowerInstanceType.InstancedPerApplier;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         ..new BuzzedBundle().HoverTips
