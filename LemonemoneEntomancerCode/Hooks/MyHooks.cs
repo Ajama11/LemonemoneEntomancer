@@ -16,6 +16,12 @@ public static class MyHooks
             (listener, context) => listener.OnBugsChanged(player, context, delta, card, targets));
     }
     
+    public static Task OnBugsSpent(Player player, int amount, CardModel? card, List<Creature>? targets)
+    {
+        return HookUtils.DispatchWithContext<IOnBugsSpent>(player,
+            (listener, context) => listener.OnBugsSpent(player, context, amount, card, targets));
+    }
+    
     public static Task OnBugAttackHit(Player player, Creature dealer, DamageResult result, ValueProp props,
         Creature target, CardModel? cardSource, int bugsSpent)
     {

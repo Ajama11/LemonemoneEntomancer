@@ -2,9 +2,11 @@ using BaseLib.Abstracts;
 using BaseLib.Cards.Variables;
 using BaseLib.Extensions;
 using Godot;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.CombatHistoryEntries;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Singletons;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -87,7 +89,12 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
         
         await BugsSingleton.LoseBugs(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets, true);
         
-        // Invoke IOnBugsSpent, a separate hook from IOnBugsChanged because Hive Form needs to know the difference between Lose and Spend. Actually a lot of cards can be changed to IOnBugsSpent, since I forgor about Hive Form...
+        CombatManager.Instance.History.Add(CombatState,
+            new BugsSpentEntry(data.AmountWhenAttackStarted, Owner,
+                CombatState.RoundNumber, Owner.Side,
+                CombatManager.Instance.History, CombatState.Players));
+
+        await MyHooks.OnBugsSpent(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets);
 
         data.CommandToModify = null;
     }

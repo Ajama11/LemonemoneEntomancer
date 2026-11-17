@@ -20,7 +20,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Uncommon.Attack;
 
 public class Unnamed32BowlbugRock() : LemonemoneEntomancerCard(
     2, CardType.Attack, CardRarity.Uncommon,
-    TargetType.AnyEnemy), IOnBugsChanged
+    TargetType.AnyEnemy), IOnBugsSpent
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -43,12 +43,12 @@ public class Unnamed32BowlbugRock() : LemonemoneEntomancerCard(
             .Execute(choiceContext);
     }
     
-    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card, List<Creature>? targets)
+    public async Task OnBugsSpent(Player player, PlayerChoiceContext choiceContext, int amount, CardModel? card, List<Creature>? targets)
     {
         if (card != this) return;
     
         await PowerCmd.Apply<BuzzedPower>(choiceContext,
-            targets, Math.Abs(delta) * DynamicVars.Buzzed.BaseValue,
+            targets, amount * DynamicVars.Buzzed.BaseValue,
             Owner.Creature, this);
     }
 

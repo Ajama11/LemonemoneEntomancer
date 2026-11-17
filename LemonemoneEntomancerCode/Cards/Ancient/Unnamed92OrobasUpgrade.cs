@@ -19,7 +19,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Ancient;
 
 public class Unnamed92OrobasUpgrade() : LemonemoneEntomancerCard(
     1, CardType.Attack, CardRarity.Ancient,
-    TargetType.AnyEnemy), IOnBugsChanged
+    TargetType.AnyEnemy), IOnBugsSpent
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -47,11 +47,11 @@ public class Unnamed92OrobasUpgrade() : LemonemoneEntomancerCard(
             .Execute(choiceContext);
     }
     
-    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card, List<Creature>? targets)
+    public async Task OnBugsSpent(Player player, PlayerChoiceContext choiceContext, int amount, CardModel? card, List<Creature>? targets)
     {
         if (card != this) return;
 
-        await MyActions.CreateSwarm(DynamicVars.Swarm.IntValue * Math.Abs(delta), player, CombatState!);
+        await MyActions.CreateSwarm(DynamicVars.Swarm.IntValue * amount, player, CombatState!);
     }
 
     protected override void OnUpgrade()

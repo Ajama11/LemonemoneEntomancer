@@ -18,7 +18,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Uncommon.Attack;
 
 public class Unnamed37BugDraw() : LemonemoneEntomancerCard(1,
     CardType.Attack, CardRarity.Uncommon,
-    TargetType.AnyEnemy), IOnBugsChanged
+    TargetType.AnyEnemy), IOnBugsSpent
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -45,11 +45,11 @@ public class Unnamed37BugDraw() : LemonemoneEntomancerCard(1,
             .Execute(choiceContext);
     }
     
-    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card, List<Creature>? targets)
+    public async Task OnBugsSpent(Player player, PlayerChoiceContext choiceContext, int amount, CardModel? card, List<Creature>? targets)
     {
         if (card != this) return;
 
-        await CardPileCmd.Draw(choiceContext, Math.Abs(delta), player);
+        await CardPileCmd.Draw(choiceContext, amount, player);
     }
 
     protected override void OnUpgrade()

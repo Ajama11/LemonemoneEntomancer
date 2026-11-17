@@ -19,7 +19,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Basic;
 
 public class BeeAssault() : LemonemoneEntomancerCard(1,
     CardType.Attack, CardRarity.Basic,
-    TargetType.AnyEnemy), IOnBugsChanged
+    TargetType.AnyEnemy), IOnBugsSpent
 {
     private const string Threshold = "Threshold";
     
@@ -45,10 +45,10 @@ public class BeeAssault() : LemonemoneEntomancerCard(1,
             .Execute(choiceContext);
     }
     
-    public async Task OnBugsChanged(Player player, PlayerChoiceContext choiceContext, int delta, CardModel? card, List<Creature>? targets)
+    public async Task OnBugsSpent(Player player, PlayerChoiceContext choiceContext, int amount, CardModel? card, List<Creature>? targets)
     {
         if (card != this) return;
-        if (Math.Abs(delta) < DynamicVars[Threshold].IntValue) return;
+        if (amount < DynamicVars[Threshold].IntValue) return;
 
         await MyActions.CreateSwarm(this);
     }
