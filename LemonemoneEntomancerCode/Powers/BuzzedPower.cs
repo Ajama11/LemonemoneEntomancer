@@ -1,7 +1,9 @@
 using BaseLib.Cards.Variables;
 using BaseLib.Extensions;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.CombatHistoryEntries;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Combat;
@@ -40,17 +42,26 @@ public class BuzzedPower() : LemonemoneEntomancerPower
         HoverTipFactory.FromCard<Swarm>()
     ];
 
-    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource)
     {
-        if (power != this || applier?.Player == null) return Task.CompletedTask;
+        if (power != this) return;
+        
+        if (amount < 0)
+        {
+            CombatManager.Instance.History.Add(CombatState,
+                new BuzzedLostEntry(amount, Owner, CombatState.RoundNumber,
+                    Owner.Side, CombatManager.Instance.History, CombatState.Players));
+
+            await MyHooks.AfterBuzzedLost(choiceContext, this, amount);
+        }
+        
+        if (applier?.Player == null) return;
 
         var data = GetInternalData<Data>();
         
         if (!data.Appliers.Contains(applier.Player))
             data.Appliers.Add(applier.Player);
-        
-        return Task.CompletedTask;
     }
 
     public override Task BeforeAttack(AttackCommand command)

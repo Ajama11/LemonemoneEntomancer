@@ -117,7 +117,7 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
             }
         }
 
-        await MyHooks.OnBugAttackHit(dealer.Player, dealer, result, props, target, cardSource);
+        await MyHooks.OnBugAttackHit(dealer.Player, dealer, result, props, target, cardSource, Amount);
     }
 
     public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,

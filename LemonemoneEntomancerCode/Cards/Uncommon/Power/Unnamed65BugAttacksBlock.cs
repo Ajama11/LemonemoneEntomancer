@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -26,7 +27,8 @@ public class Unnamed65BugAttacksBlock() : LemonemoneEntomancerCard(
     public override BundledHoverTipManager MyBundles =>
     [
         BundledHoverTipFactory.Static(MyEnums.Bugs),
-        new BuzzedBundle()
+        new BuzzedBundle(),
+        BundledHoverTipFactory.Static(StaticHoverTip.Block)
     ];
 
     protected override async Task OnPlay(

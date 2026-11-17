@@ -8,5 +8,5 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 public interface IOnBugAttackHit
 {
     public Task OnBugAttackHit(PlayerChoiceContext choiceContext, Creature dealer,
-        DamageResult result, ValueProp props, Creature target, CardModel? cardSource);
+        DamageResult result, ValueProp props, Creature target, CardModel? cardSource, int bugsSpent);
 }

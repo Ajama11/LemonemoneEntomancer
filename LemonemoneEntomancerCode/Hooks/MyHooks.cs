@@ -17,10 +17,10 @@ public static class MyHooks
     }
     
     public static Task OnBugAttackHit(Player player, Creature dealer, DamageResult result, ValueProp props,
-        Creature target, CardModel? cardSource)
+        Creature target, CardModel? cardSource, int bugsSpent)
     {
         return HookUtils.DispatchWithContext<IOnBugAttackHit>(player,
-            (listener, context) => listener.OnBugAttackHit(context, dealer, result, props, target, cardSource));
+            (listener, context) => listener.OnBugAttackHit(context, dealer, result, props, target, cardSource, bugsSpent));
     }
 
     public static Task AfterCardDiscardedAfterFlyCheck(Player player, CardModel card)
@@ -34,5 +34,12 @@ public static class MyHooks
         return HookUtils.Aggregate<IModifyBugDamageAdditive, int>(dealer.CombatState!, startingAmount,
             (listener, current) =>
                 current + listener.ModifyBugDamageAdditive(target, current, dealer));
+    }
+    
+    public static Task AfterBuzzedLost(PlayerChoiceContext choiceContext, PowerModel buzzed, decimal amount)
+    {
+        return HookUtils.Dispatch<IAfterBuzzedLost>(buzzed.CombatState,
+            choiceContext,
+            listener => listener.AfterBuzzedLost(choiceContext, buzzed, amount));
     }
 }

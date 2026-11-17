@@ -36,9 +36,11 @@ public class Unnamed63BuzzedEnergy() : LemonemoneEntomancerCard(
 
             await MyActions.Buzzed(choiceContext, Owner.Creature, this);
         }
-
-        var power = await CommonActions.ApplySelf<Unnamed63BuzzedEnergyPower>(choiceContext, this, DynamicVars.Energy.BaseValue);
         
-        power?.IncreaseBuzzed(DynamicVars.Buzzed.IntValue);
+        await MyActions.ApplySelfWithExtra<Unnamed63BuzzedEnergyPower>(choiceContext, DynamicVars.Energy.BaseValue, this, power =>
+        {
+            power.IncreaseBuzzed(DynamicVars.Buzzed.IntValue);
+            return power;
+        });
     }
 }

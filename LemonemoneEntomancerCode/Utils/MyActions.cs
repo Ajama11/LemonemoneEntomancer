@@ -1,3 +1,4 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
@@ -94,6 +95,62 @@ public class MyActions
             .ToList();
         
         return selectedCards;
+    }
+    
+    // The reversed order annoys me otherwise...
+    public static async Task<IEnumerable<CardModel>> Draw(PlayerChoiceContext context, CardModel card)
+    {
+        return await CommonActions.Draw(card, context);
+    }
+
+    /// For when powers with second amounts should update their second amount before being applied
+    public static async Task<T?> ApplyWithExtra<T>(PlayerChoiceContext choiceContext, Creature target, decimal amount, 
+        Creature? applier, CardModel? cardSource, Func<T, T> extraThings) where T : PowerModel
+    {
+        if (CombatManager.Instance.IsEnding || !target.CanReceivePowers) return null;
+
+        var canonicalPower = ModelDb.Power<T>();
+        var power = PowerCmd.FindExistingInstanceForStacking(canonicalPower, target, applier);
+        
+        bool alreadyExists = power != null;
+        if (!alreadyExists) power = canonicalPower.ToMutable();
+        
+        if (power is not T tPower) return null;
+
+        tPower = extraThings(tPower);
+
+        if (alreadyExists)
+        {
+            await PowerCmd.ModifyAmount(choiceContext, tPower,
+                amount, applier, cardSource);
+        }
+        else
+        {
+            await PowerCmd.Apply(choiceContext, tPower,
+                target, amount, applier, cardSource);
+        }
+
+        return tPower;
+    }
+    
+    /// For when powers with second amounts should update their second amount before being applied
+    public static async Task<T?> ApplyWithExtra<T>(PlayerChoiceContext choiceContext, Creature target, DynamicVarSource source, Func<T, T> extraThings) where T : PowerModel
+    {
+        return await ApplyWithExtra<T>(choiceContext,
+            target, source.DynamicVars.Power<T>().BaseValue,
+            source.Owner, source.Card, extraThings);
+    }
+    
+    /// For when powers with second amounts should update their second amount before being applied
+    public static async Task<T?> ApplySelfWithExtra<T>(PlayerChoiceContext choiceContext, decimal amount, CardModel cardSource, Func<T, T> extraThings) where T : PowerModel
+    {
+        return await ApplyWithExtra(choiceContext, cardSource.Owner.Creature, amount, cardSource.Owner.Creature, cardSource, extraThings);
+    }
+    
+    /// For when powers with second amounts should update their second amount before being applied
+    public static async Task<T?> ApplySelfWithExtra<T>(PlayerChoiceContext choiceContext, DynamicVarSource source, Func<T, T> extraThings) where T : PowerModel
+    {
+        return await ApplyWithExtra(choiceContext, source.Owner!, source, extraThings);
     }
     
     #endregion
@@ -218,11 +275,5 @@ public class MyActions
         }
 
         return discards;
-    }
-
-    // The reversed order annoys me otherwise...
-    public static async Task<IEnumerable<CardModel>> Draw(PlayerChoiceContext context, CardModel card)
-    {
-        return await CommonActions.Draw(card, context);
     }
 }

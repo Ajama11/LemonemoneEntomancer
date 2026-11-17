@@ -13,5 +13,7 @@ public static class PowerModelExtensions
         public RunRngSet Rng => power.CombatState.RunState.Rng;
 
         public IReadOnlyList<Creature> AllEnemies => power.CombatState.HittableEnemies;
+
+        public Creature? RandomEnemy => power.Rng.CombatTargets.NextItem(power.AllEnemies);
     }
 }

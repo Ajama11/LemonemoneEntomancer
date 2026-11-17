@@ -28,7 +28,7 @@ public class UnnamedBugAttacksApplyBuzzedPower() : LemonemoneEntomancerPower, IO
     ];
 
     public async Task OnBugAttackHit(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,
-        Creature target, CardModel? cardSource)
+        Creature target, CardModel? cardSource, int bugsSpent)
     {
         if (dealer != Owner) return;
         

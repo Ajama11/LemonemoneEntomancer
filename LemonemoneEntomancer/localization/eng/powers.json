@@ -35,7 +35,7 @@
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_BASE_POWER.smartDescription": "#At the start of your turn, gain [blue]{Amount}[/blue] [gold]Bug(s)[/gold] for each enemy with {Threshold:cond:>1?[blue]{}[/blue] or more |}[gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.title": "60 Call Home",
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UNUPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [blue]3[/blue] or more [gold]Buzzed[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.title": "60 Call Home: Upgraded",
+  "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.title": "60 Call Home+",
   "LEMONEMONEENTOMANCER-UNNAMED60_CALL_HOME_UPGRADED_POWER.description": "At the start of your turn, gain [blue]1[/blue] [gold]Bug[/gold] for each enemy with [gold]Buzzed[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED63_BUZZED_ENERGY_POWER.title": "63 Buzzed Energy",
   "LEMONEMONEENTOMANCER-UNNAMED63_BUZZED_ENERGY_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} and apply [blue]3[/blue] [gold]Buzzed[/gold] to yourself.",
@@ -44,6 +44,9 @@
   "LEMONEMONEENTOMANCER-UNNAMED64_NO_FLY_DRAW_POWER.description": "Whenever you discard a card without [gold]Fly[/gold], draw [blue]1[/blue] card at the start of your next turn.",
   "LEMONEMONEENTOMANCER-UNNAMED64_NO_FLY_DRAW_POWER.smartDescription": "#Whenever you discard a card without [gold]Fly[/gold], draw [blue]{Amount}[/blue] card(s) at the start of your next turn.",
   "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.title": "65 Bug Attacks Block",
-  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.description": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]2[/blue] [gold]Block[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]{Amount}[/blue] [gold]Block[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.description": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]2[/blue] [gold]Block[/gold] per [gold]Bug[/gold] spent.",
+  "LEMONEMONEENTOMANCER-UNNAMED65_BUG_ATTACKS_BLOCK_POWER.smartDescription": "Whenever an Attack deals damage using [gold]Bugs[/gold] to a [gold]Buzzed[/gold] enemy, gain [blue]{Amount}[/blue] [gold]Block[/gold] per [gold]Bug[/gold] spent.",
+  "LEMONEMONEENTOMANCER-UNNAMED66_RETRIBUGTION_POWER.title": "66 Retribugtion",
+  "LEMONEMONEENTOMANCER-UNNAMED66_RETRIBUGTION_POWER.description": "Whenever you gain [gold]Bugs[/gold], apply [blue]1[/blue] [gold]Buzzed[/gold] to yourself. The first time you lose [gold]Buzzed[/gold] each turn, apply that much [gold]Buzzed[/gold] to a random enemy.",
+  "LEMONEMONEENTOMANCER-UNNAMED66_RETRIBUGTION_POWER.smartDescription": "Whenever you gain [gold]Bugs[/gold], apply [blue]{Amount}[/blue] [gold]Buzzed[/gold] to yourself. The first time you lose [gold]Buzzed[/gold] each turn, apply {Amount:plural:|[blue]{}[/blue] times }that much [gold]Buzzed[/gold]{ExtraBuzzed:cond:>0? +[blue]{}[/blue]|} to a random enemy."
 }

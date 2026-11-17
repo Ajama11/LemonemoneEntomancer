@@ -23,16 +23,20 @@ public class Unnamed65BugAttacksBlockPower()
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.Static(MyEnums.Bugs),
-        ..new BuzzedBundle().HoverTips
+        ..new BuzzedBundle().HoverTips,
+        HoverTipFactory.Static(StaticHoverTip.Block)
     ];
 
     public async Task OnBugAttackHit(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,
-        Creature target, CardModel? cardSource)
+        Creature target, CardModel? cardSource, int bugsSpent)
     {
         if (dealer != Owner) return;
         if (!target.IsEnemy) return;
         if (target.GetPowerAmount<BuzzedPower>() <= 0) return;
 
-        await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null, true);
+        for (int i = 0; i < bugsSpent; i++)
+        {
+            await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null, true);
+        }
     }
 }
