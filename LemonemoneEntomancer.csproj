@@ -64,7 +64,6 @@
 
     <ItemGroup>
         <Folder Include="LemonemoneEntomancerCode\Cards\Multiplayer\" />
-        <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Attack\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Power\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Rare\Skill\" />
         <Folder Include="LemonemoneEntomancerCode\Cards\Token\" />

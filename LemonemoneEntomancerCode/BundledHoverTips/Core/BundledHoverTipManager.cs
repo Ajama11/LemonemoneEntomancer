@@ -1,3 +1,4 @@
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.HoverTips;
 
 namespace LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
@@ -23,6 +24,19 @@ public class BundledHoverTipManager : List<BundledHoverTip>
         return list;
     }
 
+    private string DebugDump()
+    {
+        string bundleNames = "";
+        
+        foreach (var bundle in this)
+        {
+            if (bundleNames.Length > 0) bundleNames += "\n";
+            bundleNames += $"{bundle.SortOrder}: {bundle.Name}";
+        }
+
+        return bundleNames;
+    }
+
     private void Reorder(string anchor, params string[] otherBundles)
     {
         var matchingAnchor = Find(
@@ -31,17 +45,22 @@ public class BundledHoverTipManager : List<BundledHoverTip>
 
         if (matchingAnchor == null)
         {
-            MainFile.Logger.Error("BundledHoverTipManager.Reorder() could not find anchor!");
+            MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find anchor {anchor}!\nCurrent bundles:\n{DebugDump()}");
             return;
         }
 
         for (int i = 0; i < otherBundles.Length; i++)
         {
-            var matchingPackage = Find(
+            var matchingBundle = Find(
                 b => b.Name == otherBundles[i]
             );
+            
+            if (matchingBundle == null)
+            {
+                MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find {otherBundles[i]}!\nCurrent bundles:\n{DebugDump()}");
+            }
 
-            matchingPackage?.SortOrder = matchingAnchor.SortOrder + i + 1;
+            matchingBundle?.SortOrder = matchingAnchor.SortOrder + i + 1;
         }
     }
 

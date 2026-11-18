@@ -1,8 +1,10 @@
 using BaseLib.Utils;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Powers;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,6 +23,14 @@ public class Unnamed26BugsBuzzed() : LemonemoneEntomancerCard(
     [
         new BugsVar(1),
         new BuzzedVar(6)
+    ];
+
+    public override List<List<string>> BundleReorders =>
+    [
+        [
+            DynamicVars.Bugs.Name,
+            DynamicVars.Buzzed.Name
+        ]
     ];
 
     protected override async Task OnPlay(

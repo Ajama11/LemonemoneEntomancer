@@ -98,13 +98,18 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
                 bundles.Add(new BundledHoverTip(powerHoverTip.Name, powerHoverTip.HoverTip));
             }
             
-            #endregion
+            if (DynamicVars.Values.Any(dv => dv is BugsVar { SkipTooltip: false }))
+            {
+                bundles.Add(BundledHoverTipFactory.Static(MyEnums.Bugs, name: BugsVar.Key));
+            }
             
             if (DynamicVars.Values.Any(dv => dv is SwarmVar { SkipTooltip: false }))
             {
                 bool upgraded = DynamicVars.Values.Any(dv => dv is SwarmVar { SkipTooltip: false, Upgraded: true });
-                bundles.Add(BundledHoverTipFactory.FromCard<Swarm>(upgraded));
+                bundles.Add(BundledHoverTipFactory.FromCard<Swarm>(upgraded, name: SwarmVar.Key));
             }
+            
+            #endregion
             
             bundles.AddRange(MyBundles);
             
