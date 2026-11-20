@@ -16,6 +16,10 @@ public class FlySingleton() : CustomSingletonModel(HookType.Combat)
     {
         if (card.Keywords.Contains(MyEnums.Fly))
         {
+            CardPile destinationPile = card.Pile ?? PileType.None.GetPile(card.Owner);
+            if (card is IHasDifferentFlyDestination specialCard)
+                destinationPile = specialCard.FlyDestination.GetPile(card.Owner);
+            
             var target = card.Rng.CombatTargets.NextItem(card.AllEnemies);
             if (target == null) return;
 
@@ -27,7 +31,7 @@ public class FlySingleton() : CustomSingletonModel(HookType.Combat)
                 target, 3,
                 card.Owner.Creature, null);
             
-            await CardPileCmd.Add(card, PileType.Discard);
+            await CardPileCmd.Add(card, destinationPile);
         }
 
         await MyHooks.AfterCardDiscardedAfterFlyCheck(card.Owner, card);

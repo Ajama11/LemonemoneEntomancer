@@ -130,6 +130,8 @@
   "LEMONEMONEENTOMANCER-FEAST.description": "#{IfUpgraded:show:Gain !Bugs! [gold]Bug(s)[/gold].\n|}Deal !D! damage.\nIf this kills an enemy, regain all [gold]Bugs[/gold] spent on this.",
   "LEMONEMONEENTOMANCER-UNNAMED69_META_SCALING.title": "69 Meta Scaling",
   "LEMONEMONEENTOMANCER-UNNAMED69_META_SCALING.description": "#Deal !D! damage.\nGain !Bugs! [gold]Bug(s)[/gold].\nPermanently increase this card's [gold]Bugs[/gold] by !Increase!.",
+  "LEMONEMONEENTOMANCER-UNNAMED70_DISCARD_SCALING.title": "70 Discard Scaling",
+  "LEMONEMONEENTOMANCER-UNNAMED70_DISCARD_SCALING.description": "#Deal !D! damage.\nWhenever you discard this card, increases its damage by !Increase! this combat and return it to your [gold]Hand[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
