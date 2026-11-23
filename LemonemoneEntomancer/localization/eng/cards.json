@@ -132,10 +132,20 @@
   "LEMONEMONEENTOMANCER-UNNAMED69_META_SCALING.description": "#Deal !D! damage.\nGain !Bugs! [gold]Bug(s)[/gold].\nPermanently increase this card's [gold]Bugs[/gold] by !Increase!.",
   "LEMONEMONEENTOMANCER-UNNAMED70_DISCARD_SCALING.title": "70 Discard Scaling",
   "LEMONEMONEENTOMANCER-UNNAMED70_DISCARD_SCALING.description": "#Deal !D! damage.\nWhenever you discard this card, increases its damage by !Increase! this combat and return it to your [gold]Hand[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.title": "71 Fiend Flier",
+  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.description": "#Draw !C! card(s).\nAdd X{IfUpgraded:show:+1} [gold]Lil Guys[/gold] into your [gold]Hand[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED_LIL_GUY.title": "Lil Guy",
+  "LEMONEMONEENTOMANCER-UNNAMED_LIL_GUY.description": "#Deal !D! damage for each card in your [gold]Hand[/gold].{InCombat:\n(Hits !CalculatedHits! time(s).)|}",
+  "LEMONEMONEENTOMANCER-UNNAMED72_SWARM_FROM_BUGS.title": "72 Swarm from Bugs",
+  "LEMONEMONEENTOMANCER-UNNAMED72_SWARM_FROM_BUGS.description": "#Add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold] for each of your [gold]Bugs[/gold].\nDiscard !Discard! card(s).",
+  "LEMONEMONEENTOMANCER-UNNAMED73_CALCULATED_BUGGLE.title": "73 Calculated Buggle",
+  "LEMONEMONEENTOMANCER-UNNAMED73_CALCULATED_BUGGLE.description": "#Discard any number of cards, then gain that many [gold]Bugs[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED74_SWARMS_TO_HIVES.title": "74 Swarms to Hives",
+  "LEMONEMONEENTOMANCER-UNNAMED74_SWARMS_TO_HIVES.description": "#[gold]Transform[/gold] ALL [gold]Swarms[/gold] in your [gold]Hand[/gold] into [gold]Hives{IfUpgraded:show:+|}[/gold].",
+  "LEMONEMONEENTOMANCER-HIVE.title": "Hive",
+  "LEMONEMONEENTOMANCER-HIVE.description": "#Draw !C! card(s).\nDiscard !Discard! card(s).\nWhen drawn, draw !C! card(s) and gain !Bugs! [gold]Bug(s)[/gold].{IfUpgraded:show:\nWhen discarded, gain !Bugs! [gold]Bug(s)[/gold].|}",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
-  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
-  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.title": "71 Fiend Flier",
-  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.description": "#Draw !C! card(s).\nDeal X{IfUpgraded:show:+1} damage for each card in your [gold]Hand[/gold].{InCombat:\n(Deals !XDamage! damage !CalculatedHits! time(s).)|}"
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
 }
