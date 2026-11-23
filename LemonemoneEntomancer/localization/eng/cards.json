@@ -135,5 +135,7 @@
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",
-  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold]."
+  "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.description": "Whenever you discard a card without [gold]Fly[/gold], it gains [gold]Fly[/gold].",
+  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.title": "71 Fiend Flier",
+  "LEMONEMONEENTOMANCER-UNNAMED71_FIEND_FLIER.description": "#Draw !C! card(s).\nDeal X{IfUpgraded:show:+1} damage for each card in your [gold]Hand[/gold].{InCombat:\n(Deals !XDamage! damage !CalculatedHits! time(s).)|}"
 }
