@@ -3,6 +3,7 @@ using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,7 +19,7 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Token;
 [Pool(typeof(TokenCardPool))]
 public class Hive() : LemonemoneEntomancerCard(0,
     CardType.Skill, CardRarity.Token,
-    TargetType.Self)
+    TargetType.Self), IHasWhenDiscardedEffect
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -51,11 +52,9 @@ public class Hive() : LemonemoneEntomancerCard(0,
         await MyActions.GainBugs(this);
     }
 
-    public override async Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
+    public bool ShouldDoWhenDiscarded => IsUpgraded;
+    public async Task WhenDiscarded(PlayerChoiceContext choiceContext)
     {
-        if (card != this) return;
-        if (!IsUpgraded) return;
-        
         await MyActions.GainBugs(this);
     }
 }

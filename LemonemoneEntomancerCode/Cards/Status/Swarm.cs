@@ -4,6 +4,7 @@ using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Extensions;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Hooks;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Utils;
 using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,7 +19,8 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 [Pool(typeof(StatusEntomancerCardPool))]
 public class Swarm() : LemonemoneEntomancerCard(-1,
     CardType.Status, CardRarity.Status,
-    TargetType.Self)
+    TargetType.Self),
+    IHasWhenDiscardedEffect, IHasDifferentDiscardDestination
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -46,11 +48,12 @@ public class Swarm() : LemonemoneEntomancerCard(-1,
         await MyActions.GainBugs(this);
     }
 
-    public override async Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
+    public bool ShouldDoWhenDiscarded => IsUpgraded;
+    public async Task WhenDiscarded(PlayerChoiceContext choiceContext)
     {
-        if (card != this) return;
-        if (!IsUpgraded) return;
-        
         await MyActions.GainBugs(this);
     }
+
+    public PileType DiscardDestinationPile { get; set; } = PileType.Discard;
+    public CardPilePosition DiscardDestinationPosition { get; set; } = CardPilePosition.Bottom;
 }

@@ -16,7 +16,8 @@ namespace LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Rare.Attack;
 
 public class Unnamed70DiscardScaling() : LemonemoneEntomancerCard(
     1, CardType.Attack, CardRarity.Rare,
-    TargetType.AnyEnemy), IAfterCardDiscardedAfterFlyCheck, IHasDifferentFlyDestination
+    TargetType.AnyEnemy),
+    IHasWhenDiscardedEffect, IHasDifferentDiscardDestination
 {
     private const string Increase = "Increase";
 
@@ -52,11 +53,11 @@ public class Unnamed70DiscardScaling() : LemonemoneEntomancerCard(
             .Execute(choiceContext);
     }
     
-    public PileType FlyDestination { get; set; } = PileType.Hand;
-    public Task AfterCardDiscardedAfterFlyCheck(PlayerChoiceContext choiceContext, CardModel card)
+    public PileType DiscardDestinationPile { get; set; } = PileType.Hand;
+    public CardPilePosition DiscardDestinationPosition { get; set; } = CardPilePosition.Bottom;
+    public bool ShouldDoWhenDiscarded => IsUpgraded;
+    public Task WhenDiscarded(PlayerChoiceContext choiceContext)
     {
-        if (card != this) return Task.CompletedTask;
-        
         DynamicVars.Damage.BaseValue += DynamicVars[Increase].BaseValue;
         ExtraDamageFromDiscards += DynamicVars[Increase].BaseValue;
         

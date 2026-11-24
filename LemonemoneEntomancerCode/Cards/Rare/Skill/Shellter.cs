@@ -34,6 +34,6 @@ public class Shellter() : LemonemoneEntomancerCard(2,
 
     protected override void OnUpgrade()
     {
-        // ?
+        // Missing upgrade
     }
 }
