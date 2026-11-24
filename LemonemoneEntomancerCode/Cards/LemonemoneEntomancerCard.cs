@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.BundledHoverTips.Core;
+using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Rare.Skill;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Cards.Status;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.Character;
 using LemonemoneEntomancer.LemonemoneEntomancerCode.DynamicVars;
@@ -38,6 +39,7 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
     
     public virtual BundledHoverTipManager MyBundles => [];
     public virtual List<List<string>> BundleReorders => [];
+    public virtual bool ReportMissingBundleReorders => true;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
@@ -113,7 +115,7 @@ public abstract class LemonemoneEntomancerCard(int cost, CardType type, CardRari
             
             bundles.AddRange(MyBundles);
             
-            bundles.SortHoverTips(BundleReorders);
+            bundles.SortHoverTips(BundleReorders, ReportMissingBundleReorders);
             return bundles.GetHoverTips();
         }
     }

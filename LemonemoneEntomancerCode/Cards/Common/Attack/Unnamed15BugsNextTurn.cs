@@ -21,7 +21,7 @@ public class Unnamed15BugsNextTurn() : LemonemoneEntomancerCard(
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(3, DamageProps.card),
-        new PowerVar<BugsNextTurn>(3)
+        new PowerVar<BugsNextTurnPower>(3)
     ];
 
     public override BundledHoverTipManager MyBundles =>
@@ -38,11 +38,11 @@ public class Unnamed15BugsNextTurn() : LemonemoneEntomancerCard(
                 tmpSfx: TmpSfx.slashAttack)
             .Execute(choiceContext);
 
-        await CommonActions.ApplySelf<BugsNextTurn>(choiceContext, this);
+        await CommonActions.ApplySelf<BugsNextTurnPower>(choiceContext, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<BugsNextTurn>().UpgradeValueBy(1);
+        DynamicVars.Power<BugsNextTurnPower>().UpgradeValueBy(1);
     }
 }

@@ -37,7 +37,7 @@ public class BundledHoverTipManager : List<BundledHoverTip>
         return bundleNames;
     }
 
-    private void Reorder(string anchor, params string[] otherBundles)
+    private void Reorder(bool reportMissing, string anchor, params string[] otherBundles)
     {
         var matchingAnchor = Find(
             b => b.Name == anchor
@@ -45,7 +45,8 @@ public class BundledHoverTipManager : List<BundledHoverTip>
 
         if (matchingAnchor == null)
         {
-            MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find anchor {anchor}!\nCurrent bundles:\n{DebugDump()}");
+            if (reportMissing)
+                MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find anchor {anchor}!\nCurrent bundles:\n{DebugDump()}");
             return;
         }
 
@@ -57,20 +58,22 @@ public class BundledHoverTipManager : List<BundledHoverTip>
             
             if (matchingBundle == null)
             {
-                MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find {otherBundles[i]}!\nCurrent bundles:\n{DebugDump()}");
+                if (reportMissing)
+                    MainFile.Logger.Error($"BundledHoverTipManager.Reorder() could not find {otherBundles[i]}!\nCurrent bundles:\n{DebugDump()}");
+                continue;
             }
 
-            matchingBundle?.SortOrder = matchingAnchor.SortOrder + i + 1;
+            matchingBundle.SortOrder = matchingAnchor.SortOrder + i + 1;
         }
     }
 
-    public void SortHoverTips(List<List<string>>? reorders = null)
+    public void SortHoverTips(List<List<string>>? reorders = null, bool reportMissing = true)
     {
         if (reorders != null)
         {
             foreach (var reorder in reorders)
             {
-                Reorder(reorder[0], reorder.Skip(1).ToArray());
+                Reorder(reportMissing, reorder[0], reorder.Skip(1).ToArray());
             }
         }
         
