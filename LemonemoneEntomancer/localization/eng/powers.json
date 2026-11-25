@@ -51,5 +51,8 @@
   "LEMONEMONEENTOMANCER-UNNAMED66_RETRIBUGTION_POWER.smartDescription": "Whenever you gain [gold]Bugs[/gold], apply [blue]{Amount}[/blue] [gold]Buzzed[/gold] to yourself. The first time you lose [gold]Buzzed[/gold] each turn, apply {Amount:plural:|[blue]{}[/blue] times }that much [gold]Buzzed[/gold]{ExtraBuzzed:cond:>0? +[blue]{}[/blue]|} to a random enemy.",
   "LEMONEMONEENTOMANCER-CHILDREN_POWER.title": "Children",
   "LEMONEMONEENTOMANCER-CHILDREN_POWER.description": "At the start of your next turn, apply [gold]Buzzed[/gold] to ALL enemies.",
-  "LEMONEMONEENTOMANCER-CHILDREN_POWER.smartDescription": "#At the start of your next turn, apply [blue]{Amount}[/blue] [gold]Buzzed[/gold] to ALL enemies."
+  "LEMONEMONEENTOMANCER-CHILDREN_POWER.smartDescription": "#At the start of your next turn, apply [blue]{Amount}[/blue] [gold]Buzzed[/gold] to ALL enemies.",
+  "LEMONEMONEENTOMANCER-UNNAMED84_EXCESS_BUGS_TO_BLOCK_POWER.title": "84 Excess Bugs to Block",
+  "LEMONEMONEENTOMANCER-UNNAMED84_EXCESS_BUGS_TO_BLOCK_POWER.description": "At the end of your turn, spend ALL [gold]Bugs-in-Waiting[/gold] to gain [gold]Block[/gold] per [gold]Bug[/gold] spent.",
+  "LEMONEMONEENTOMANCER-UNNAMED84_EXCESS_BUGS_TO_BLOCK_POWER.smartDescription": "At the end of your turn, spend ALL [gold]Bugs-in-Waiting[/gold] to gain [blue]{Amount}[/blue] [gold]Block[/gold] per [gold]Bug[/gold] spent.\n(Will give [blue]{Display}[/blue] [gold]Block[/gold].)"
 }

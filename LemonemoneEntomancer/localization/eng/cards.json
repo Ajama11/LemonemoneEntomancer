@@ -160,6 +160,8 @@
   "LEMONEMONEENTOMANCER-LADYBUG_LUCK.description": "#Discard your [gold]Hand[/gold].\nPut all [gold]Swarms[/gold] discarded this way into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED82_GIGA_INFLAME.title": "82 Giga Inflame",
   "LEMONEMONEENTOMANCER-UNNAMED82_GIGA_INFLAME.description": "#Gain X [gold]Bugs[/gold].\nGain X [gold]Bug Strength[/gold].{IfUpgraded:show:\nmissing upgrade|}",
+  "LEMONEMONEENTOMANCER-UNNAMED84_EXCESS_BUGS_TO_BLOCK.title": "84 Excess Bugs to Block",
+  "LEMONEMONEENTOMANCER-UNNAMED84_EXCESS_BUGS_TO_BLOCK.description": "At the end of your turn, spend ALL [gold]Bugs-in-Waiting[/gold] to gain {Unnamed84ExcessBugsToBlockPower:diff()} [gold]Block[/gold] per [gold]Bug[/gold] spent.{IfUpgraded:show:\nmissing upgrade|}",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.title": "Bee Assault Upgrade",
   "LEMONEMONEENTOMANCER-UNNAMED92_OROBAS_UPGRADE.description": "#Deal !D! damage.\nFor each [gold]Bug[/gold] spent on this, add !Swarm! [gold]Swarm(s)[/gold] into your [gold]Draw Pile[/gold].",
   "LEMONEMONEENTOMANCER-UNNAMED93_DARV_FLY.title": "Darv Fly",

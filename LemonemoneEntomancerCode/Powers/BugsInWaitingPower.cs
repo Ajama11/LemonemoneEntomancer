@@ -79,22 +79,12 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
         
         if (data.CommandToModify != command) return;
 
-        await PowerCmd.ModifyAmount(choiceContext, this,
-            -data.AmountWhenAttackStarted, null, null);
-
         var targets = command.Results
             .SelectMany(list => list)
             .Select(result => result.Receiver)
             .ToList();
-        
-        await BugsSingleton.LoseBugs(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets, true);
-        
-        CombatManager.Instance.History.Add(CombatState,
-            new BugsSpentEntry(data.AmountWhenAttackStarted, Owner,
-                CombatState.RoundNumber, Owner.Side,
-                CombatManager.Instance.History, CombatState.Players));
 
-        await MyHooks.OnBugsSpent(Owner.Player!, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets);
+        await Spend(choiceContext, data.AmountWhenAttackStarted, command.ModelSource as CardModel, targets);
 
         data.CommandToModify = null;
     }
@@ -135,6 +125,23 @@ public class BugsInWaitingPower() : LemonemoneEntomancerPower, IHasSecondAmount
         this.InvokeSecondAmountChanged();
         
         return Task.CompletedTask;
+    }
+
+    public async Task Spend(PlayerChoiceContext choiceContext, int amount, CardModel? card = null, List<Creature>? targets = null)
+    {
+        if (Owner.Player == null) return;
+        
+        await PowerCmd.ModifyAmount(choiceContext, this,
+            -amount, null, null);
+        
+        await BugsSingleton.LoseBugs(Owner.Player, amount, card, targets, true);
+        
+        CombatManager.Instance.History.Add(CombatState,
+            new BugsSpentEntry(amount, Owner,
+                CombatState.RoundNumber, Owner.Side,
+                CombatManager.Instance.History, CombatState.Players));
+
+        await MyHooks.OnBugsSpent(Owner.Player, amount, card, targets);
     }
 
     public string GetSecondAmount()
